@@ -15,12 +15,10 @@ class Superviseur extends Entity
 {
 
     public $idSuperviseur;
-    public $prenom;
-    public $nom;
-    public $email;
+    public $pseudo;
     public $motDePasse;
 
-    public function __construct($idSuperviseur = false, $prenom, $nom, $email, $motDePasse)
+    public function __construct($idSuperviseur = false, $pseudo = "", $motDePasse = "")
     {
         parent::__construct();
         $this->idSuperviseur = $idSuperviseur;

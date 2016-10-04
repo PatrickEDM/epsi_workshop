@@ -23,12 +23,12 @@ use Models\Queries\PersonneSQL;
 
 class Connexion extends Controller
 {
-    private $userSQL;
+    private $superviseurSQL;
     private $entityManager;
 
     public function __construct() {
         parent::__construct();
-        $this->userSQL = new PersonneSQL();
+        $this->superviseurSQL = new SuperviseurSQL();
         $this->entityManager = EntityManager::getInstance();
     }
 
@@ -42,8 +42,8 @@ class Connexion extends Controller
 
     public function connexion() {
 
-        $user = $this->userSQL->prepareFindByLogin($_POST['login']);
-        if ($user == false || Password::verify($_POST['password'], $user->motdepasse) == false){
+        $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['login']);
+        if ($superviseur == false || Password::verify($_POST['password'], $user->motdepasse) == false){
             //Ajouter un message d'erreur
             Url::redirect();
         }
@@ -53,13 +53,10 @@ class Connexion extends Controller
         }
         if (!$error) {
             Session::set('loggedin', true);
-            Session::set('id', $user->getId());
-            Session::set('mail',$user->email);
-            Session::set('login', $user->pseudo);
-            $user->cookie = rand(0,64);
-            setcookie("remember", $user->cookie, time() + 3600 * 31 * 24, DIR);
+            Session::set('id', $superviseur->getId());
+            Session::set('login', $superviseur->pseudo);
 
-            Session::set('message', "Bienvenue $user->pseudo");
+            Session::set('message', "Bienvenue $superviseur->pseudo");
             Session::set('message_type', 'alert-success');
         }
            Url::redirect();
@@ -78,24 +75,23 @@ class Connexion extends Controller
             //Validate data using Gump
             $is_valid = Gump::is_valid($_POST, array(
                 'pseudo' => 'required|alpha_numeric',
-                'email' => 'required|valid_email',
                 'password' => 'required', //|max_len,18|min_len,6
                 'password-again' => 'required' //|max_len,18|min_len,6
             ));
 
             if ($is_valid === true) {
                 //Test for duplicate username`
-                $user = $this->userSQL->prepareFindByLogin($_POST['pseudo']);
+                $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['pseudo']);
 
                 if ($_POST['password'] != $_POST['password-again'])
                     $error[] = "Les deux mots de passes doivent être identiques";
 
-                if ($user != false)
+                if ($superviseur != false)
                     $error[] = 'Ce compte existe déjà';
 
-                $user = $this->userSQL->prepareFindByEmail($_POST['email'])->execute();
+                $superviseur = $this->superviseurSQL->prepareFindByEmail($_POST['email'])->execute();
                 //Test for dupicate email address
-                if (count($user) > 0)
+                if (count($superviseur) > 0)
                     $error[] = 'Ce compte email existe déjà.';
 
                 $data['erreurs'] = $error;
@@ -109,18 +105,17 @@ class Connexion extends Controller
 
             if (!$error) {
                 //Register and return the data as an array $data[]
-                $pseudo = $_POST['pseudo']; $mail = $_POST['email']; $password = Password::make($_POST['password']);
-                $user = new Personne($pseudo, $mail, $password);
-                print_r($user);
-                $this->entityManager->save($user);
-                Session::set('id', $user->getId());
-                Session::set('pseudo', $user->login);
-                Session::set('level',$user->currentLvl);
+                $pseudo = $_POST['pseudo']; $password = Password::make($_POST['password']);
+                $superviseur = new Superviseur($pseudo, $password);
+                print_r($superviseur);
+                $this->entityManager->save($superviseur);
+                Session::set('id', $superviseur->getId());
+                Session::set('pseudo', $superviseur->login);
+                Session::set('level',$superviseur->currentLvl);
                 Session::set('loggedin', true);
                 Url::redirect();
             }
         }
-
     }
 }
 

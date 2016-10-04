@@ -19,7 +19,6 @@
             <div class="register">
                 <form class="form">
                     <input type="text" placeholder="Nom d'utilisateur">
-                    <input type="email" placeholder="E-Mail">
                     <input type="password" placeholder="Mot de passe">
                     <input type="password" placeholder="Confirmer le mot de passe">
                     <button type="submit" id="login-button">Connexion</button>
