@@ -41,7 +41,7 @@ class Connexion extends Controller
 
     public function connexion() {
 
-        $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['login']);
+        $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['pseudo']);
         if ($superviseur == false || Password::verify($_POST['password'], $superviseur->motdepasse) == false){
             //Ajouter un message d'erreur
             Url::redirect();
@@ -55,7 +55,7 @@ class Connexion extends Controller
             Session::set('id', $superviseur->getId());
             Session::set('login', $superviseur->pseudo);
 
-            Session::set('message', "Bienvenue $superviseur->pseudo");
+            Session::set('message', "Bienvenue ".$superviseur->pseudo);
             Session::set('message_type', 'alert-success');
         }
            Url::redirect(DIR);
