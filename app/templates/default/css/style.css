@@ -127,7 +127,7 @@ a:hover{text-decoration: none;color: black;}
 }
 @media all and (min-width: 768px) {
     .center {
-        height: 100vh;
+        margin-top: 20%;
         display: -webkit-flex;
         display:         flex;
         -webkit-align-items: center;
