@@ -23,3 +23,51 @@
 #8 {main}</pre>
 
            <hr />
+<h3>Exception information:</h3>
+
+           <p><strong>Date:</strong> Oct 04, 2016 13:20PM</p>
+
+           <p><strong>Message:</strong> SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)</p>
+
+           <p><strong>Code:</strong> 1045</p>
+
+           <p><strong>File:</strong> /Users/Sullivan/IdeaProjects/epsi_workshop/app/Helpers/DB/DBManager.php</p>
+
+           <p><strong>Line:</strong> 22</p>
+
+           <h3>Stack trace:</h3>
+
+           <pre>#0 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Helpers/DB/DBManager.php(22): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Helpers/DB/DBManager.php(35): Helpers\DB\DBManager->__construct()
+#2 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Helpers/DB/Query.php(43): Helpers\DB\DBManager::getInstance()
+#3 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Controllers/Connexion.php(30): Helpers\DB\Query->__construct()
+#4 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Core/Router.php(124): Controllers\Connexion->__construct(NULL)
+#5 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Core/Router.php(217): Core\Router::invokeObject('Controllers\\Con...')
+#6 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Core/routes.php(31): Core\Router::dispatch()
+#7 /Users/Sullivan/IdeaProjects/epsi_workshop/index.php(81): require('/Users/Sullivan...')
+#8 {main}</pre>
+
+           <hr />
+<h3>Exception information:</h3>
+
+           <p><strong>Date:</strong> Oct 04, 2016 13:42PM</p>
+
+           <p><strong>Message:</strong> syntax error, unexpected 'navbar' (T_STRING)</p>
+
+           <p><strong>Code:</strong> 0</p>
+
+           <p><strong>File:</strong> /Users/Sullivan/IdeaProjects/epsi_workshop/app/templates/default/header.php</p>
+
+           <p><strong>Line:</strong> 42</p>
+
+           <h3>Stack trace:</h3>
+
+           <pre>#0 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Controllers/Welcome.php(41): Core\View::renderTemplate('header', Array)
+#1 [internal function]: Controllers\Welcome->index()
+#2 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Core/Router.php(126): call_user_func_array(Array, Array)
+#3 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Core/Router.php(217): Core\Router::invokeObject('Controllers\\Wel...')
+#4 /Users/Sullivan/IdeaProjects/epsi_workshop/app/Core/routes.php(31): Core\Router::dispatch()
+#5 /Users/Sullivan/IdeaProjects/epsi_workshop/index.php(81): require('/Users/Sullivan...')
+#6 {main}</pre>
+
+           <hr />

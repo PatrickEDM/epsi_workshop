@@ -110,7 +110,7 @@ a:hover{text-decoration: none;color: black;}
     text-align: right;
     color: white;
 }
-
+.navbar-brand img{width: 30%;}
 .register{display: none;}
 .navbar-brand{color: white;}
 .navbar-brand:hover{color: white;}

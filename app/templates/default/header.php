@@ -37,7 +37,7 @@ $hooks = Hooks::get();
 </head>
 <header class="navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Memory Training</a>
+        <a class="navbar-brand" href="#"><img src="app/templates/default/img/logo_transparent.png"/></a>
         <?php
             if(Session::get('loggedin') == true):
         ?>
