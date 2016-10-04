@@ -41,8 +41,9 @@ class Connexion extends Controller
 
     public function connexion() {
 
-        $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['pseudo']);
-        if ($superviseur == false || Password::verify($_POST['password'], $superviseur->motdepasse) == false){
+        $superviseur = $this->superviseurSQL->prepareFindByPseudo($_POST['pseudo'])->execute();
+        $superviseur = $superviseur[0];
+        if (is_null($superviseur) || Password::verify($_POST['password'], $superviseur->motDePasse) === false){
             //Ajouter un message d'erreur
             Url::redirect();
         }
@@ -51,14 +52,15 @@ class Connexion extends Controller
             $error = false;
         }
         if (!$error) {
+
             Session::set('loggedin', true);
             Session::set('id', $superviseur->getId());
-            Session::set('login', $superviseur->pseudo);
+            Session::set('pseudo', $superviseur->pseudo);
 
             Session::set('message', "Bienvenue ".$superviseur->pseudo);
             Session::set('message_type', 'alert-success');
         }
-           Url::redirect(DIR);
+           Url::redirect();
     }
 
     public function deconnexion()
