@@ -21,6 +21,7 @@ Router::any('inscription_joueur','Controllers\Superviseur@ajouterJoueur');
 Router::any('supprimer_joueur/(:any)','Controllers\Superviseur@supprimerJoueur');
 Router::any('activer_joueur/(:any)','Controllers\Superviseur@connexionJoueur');
 Router::any('desactiver_joueur','Controllers\Superviseur@deconnexionJoueur');
+Router::any('profil/(:any)','Controllers\Joueurgestion@profil');
 
 /** Module routes. */
 $hooks = Hooks::get();
