@@ -31,7 +31,7 @@ class Superviseur extends Controller
     }
 
     public function dashboard(){
-
+        $data['title'] = "Dashboard";
         $data['joueurs'] = $this->joueurSQL->prepareFindByIdsuperviseur(Session::get('id'))->execute();
 
 
@@ -58,7 +58,7 @@ class Superviseur extends Controller
             $joueur = new Joueur($prenom,$nom,$idSuperviseur);
             $this->entityManager->save($joueur);
         }
-        Url::redirect(dashboard);
+        Url::redirect('dashboard');
     }
 
     public function supprimerJoueur($id)
@@ -66,19 +66,18 @@ class Superviseur extends Controller
 
         $joueur = $this->joueurSQL->findById($id);
         $this->entityManager->delete($joueur);
-        Url::redirect(dashboard);
-    }
+        Url::redirect('dashboard');    }
 
     public function connexionJoueur($id)
     {
         // /!\ Attention, aucun rapport avec la connexion, on garde juste en session les données relatives au Joueur sous la tutelle du
         // superviseur connecté
         $joueur = $this->joueurSQL->findById($id);
-        Session::set('idJoueur',$joueur->id);
+        Session::set('idJoueur',$joueur->getId());
         Session::set('nomJoueur',$joueur->nom);
         Session::set('prenomJoueur',$joueur->prenom);
         Session::set('joueurConnecte', true);
-        Url::redirect(profil);
+        Url::redirect('profil/'.$joueur->getId());
     }
 
     public function deconnexionJoueur(){
@@ -86,7 +85,7 @@ class Superviseur extends Controller
         Session::destroy('nomJoueur', false);
         Session::destroy('prenomJoueur', false);
         Session::destroy('joueurConnecte', false);
-        Url::redirect(dashboard);
+        Url::redirect('dashboard');
     }
 
 }

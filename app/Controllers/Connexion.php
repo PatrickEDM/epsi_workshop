@@ -59,6 +59,7 @@ class Connexion extends Controller
 
             Session::set('message', "Bienvenue ".$superviseur->pseudo);
             Session::set('message_type', 'alert-success');
+            Url::redirect('dashboard');
         }
            Url::redirect();
     }
