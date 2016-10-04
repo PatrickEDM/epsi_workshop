@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mar 04 Octobre 2016 à 12:58
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
+-- Client :  localhost
+-- Généré le :  Mar 04 Octobre 2016 à 16:36
+-- Version du serveur :  5.6.32-1+deb.sury.org~xenial+0.1
+-- Version de PHP :  7.0.11-1+deb.sury.org~xenial+1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `jeu`
 --
 
-DROP TABLE IF EXISTS `jeu`;
 CREATE TABLE `jeu` (
   `nom` text NOT NULL,
   `id` bigint(20) UNSIGNED NOT NULL
@@ -38,7 +37,6 @@ CREATE TABLE `jeu` (
 -- Structure de la table `joueur`
 --
 
-DROP TABLE IF EXISTS `joueur`;
 CREATE TABLE `joueur` (
   `prenom` varchar(50) NOT NULL,
   `nom` varchar(50) NOT NULL,
@@ -52,9 +50,9 @@ CREATE TABLE `joueur` (
 -- Structure de la table `statistique`
 --
 
-DROP TABLE IF EXISTS `statistique`;
 CREATE TABLE `statistique` (
   `date` date NOT NULL,
+  `score` int(10) UNSIGNED NOT NULL,
   `idJoueur` bigint(20) UNSIGNED NOT NULL,
   `idJeu` bigint(20) UNSIGNED NOT NULL,
   `id` bigint(20) UNSIGNED NOT NULL
@@ -66,7 +64,6 @@ CREATE TABLE `statistique` (
 -- Structure de la table `superviseur`
 --
 
-DROP TABLE IF EXISTS `superviseur`;
 CREATE TABLE `superviseur` (
   `pseudo` varchar(50) NOT NULL,
   `motDePasse` varchar(100) NOT NULL,
