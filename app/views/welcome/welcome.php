@@ -21,7 +21,7 @@
                     <input type="text" placeholder="Nom d'utilisateur">
                     <input type="password" placeholder="Mot de passe">
                     <input type="password" placeholder="Confirmer le mot de passe">
-                    <button type="submit" id="register-button">Connexion</button>
+                    <button type="submit" id="register-button">S'inscrire</button>
                 </form>
                 <a href="#" id="login_anim">Vous avez déjà un compte ?</a>
             </div>
