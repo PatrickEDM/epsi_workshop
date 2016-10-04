@@ -36,7 +36,7 @@
 		    new Chartist.Line('.ct-chart1', {
   			    labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
   			    series: [
-    			    [12, 9, 7, 8, 5],
+    			    [1, 9, 7, 8, 5],
   			    ]
 		    }, {
   				fullWidth: false,

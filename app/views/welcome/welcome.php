@@ -36,7 +36,7 @@
         <div class="accueil_txt">
             <h3>La maladie d'Alzheimer</h3>
             <p>Aujourd’hui, 3 millions de Français sont directement ou indirectement touchés par la maladie d’Alzheimer, dont plus de 850 000 personnes malades. Avec près de 225 000 nouveaux cas diagnostiqués chaque année, la maladie progresse, si rien ne change, notre pays comptera 1 275 000 personnes malades dans seulement 8 ans.</p>
-            <p>Avec Memory Training, </p>
+            <p>Avec Memory Training, vos patients peuvent améliorer leur mémoire.</p>
         </div>
     </div>
 </div>
