@@ -1,3 +1,4 @@
+
 body{
     background: url(../img/background.png) no-repeat center fixed;
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
@@ -9,8 +10,11 @@ a {
   color: black;
   text-decoration: none; /* no underline */
 }
+li{list-style-type:none;}
 a:hover{text-decoration: none;color: black;}
+
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
 
 #login{
 
@@ -108,7 +112,10 @@ a:hover{text-decoration: none;color: black;}
 }
 
 .register{display: none;}
-.navbar-brand{color: white}
+.navbar-brand{color: white;}
+.navbar-brand:hover{color: white;}
+.nav li,a{color:white;}
+.menumobile{color:white;}
 /* mobile phone */
 @media all and (max-width: 768px) {
     .accueil_txt{

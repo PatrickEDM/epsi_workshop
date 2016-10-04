@@ -35,44 +35,39 @@ $hooks = Hooks::get();
     ?>
 
 </head>
-
-
 <header class="navbar-fixed-top">
     <div class="container">
+        <a class="navbar-brand" href="#">Memory Training</a>
+        <?php
+            if(Session::get('loggedin') == true):
+        ?>
         <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="menumobile">Menu</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-
         </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="<?= DIR?>" class="navbar-brand">Memory Training</a>
-                </li>
-                <?php
-                    if(Session::get('loggedin') == true):
-                ?>
-                    <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
-                    <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
-                    <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
-                    <li><?= Session::get('message') ?></li>
-                <?php
-                    endif;
-                ?>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
+                <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
+                <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
+                <li><?= Session::get('message') ?></li>
             </ul>
-        </nav>
+        </div><!-- /.container-fluid -->
     </div>
-</header>
+    <?php
+        endif;
+    ?>
+        <body>
+        <?php
+            //hook for running code after body tag
+            $hooks->run('afterBody');
+        ?>
 
-<body>
-<?php
-//hook for running code after body tag
-$hooks->run('afterBody');
-?>
 
-
-<div class="container-fluid">
+        <div class="container-fluid">
