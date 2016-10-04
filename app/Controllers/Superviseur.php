@@ -49,16 +49,11 @@ class Superviseur extends Controller
         }
     }
 
-    public function supprimerJoueur()
+    public function supprimerJoueur($id)
     {
-        $prenom = "foo";
-        $nom = "bar";
-        $idSuperviseur = Session::get('id');
-        $idJoueur = -1;
 
-        $joueur = new Joueur($prenom,$nom,$idSuperviseur,$idJoueur);
+        $joueur = $this->joueurSQL->findById($id);
         $this->entityManager->delete($joueur);
-
 
     }
 
