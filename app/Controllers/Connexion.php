@@ -42,6 +42,7 @@ class Connexion extends Controller
 
     public function connexion() {
 
+        die('connexion');
         $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['login']);
         if ($superviseur == false || Password::verify($_POST['password'], $superviseur->motdepasse) == false){
             //Ajouter un message d'erreur
@@ -70,6 +71,7 @@ class Connexion extends Controller
 
     public function inscription()
     {
+        die("toto");
         $_POST = Gump::sanitize($_POST);
         if (isset($_POST['pseudo'])) {
             //Validate data using Gump

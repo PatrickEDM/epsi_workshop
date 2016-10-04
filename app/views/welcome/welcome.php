@@ -9,7 +9,7 @@
             <h1>Bienvenue</h1>
 
             <div class="login">
-                <form class="form">
+                <form class="form" action="<?= DIR;?>connexion" method="post">
                     <input type="text" placeholder="Nom d'utilisateur">
                     <input type="password" placeholder="Mot de passe">
                     <button type="submit" id="login-button">Connexion</button>
@@ -17,7 +17,7 @@
                 <a href="#" id="register_anim">Vous n'avez pas de compte ?</a>
             </div>
             <div class="register">
-                <form class="form">
+                <form class="form" action="<?= DIR;?>inscription" method="post">
                     <input type="text" placeholder="Nom d'utilisateur">
                     <input type="password" placeholder="Mot de passe">
                     <input type="password" placeholder="Confirmer le mot de passe">
