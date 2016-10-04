@@ -13,7 +13,7 @@ a:hover{text-decoration: none;color: black;}
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 
 #login{
-    margin: 0 auto;
+
     text-align: center;
 
     color: white;
@@ -108,13 +108,24 @@ a:hover{text-decoration: none;color: black;}
 }
 
 .register{display: none;}
-.center {
-    height: 100vh;
-    display: -webkit-flex;
-    display:         flex;
-    -webkit-align-items: center;
-          align-items: center;
-    -webkit-justify-content: center;
-          justify-content: center;
-}
 .navbar-brand{color: white}
+/* mobile phone */
+@media all and (max-width: 768px) {
+    .accueil_txt{
+        display: none;
+    }
+    .center{
+        margin-top: 50%;
+    }
+}
+@media all and (min-width: 768px) {
+    .center {
+        height: 100vh;
+        display: -webkit-flex;
+        display:         flex;
+        -webkit-align-items: center;
+              align-items: center;
+        -webkit-justify-content: center;
+              justify-content: center;
+    }
+}
