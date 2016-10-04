@@ -56,10 +56,10 @@ $hooks = Hooks::get();
                 <?php
                     if(Session::get('loggedin') == true):
                 ?>
-                <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
-                <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
-                <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
-                <li><?= Session::get('message') ?></li>
+                    <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
+                    <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
+                    <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
+                    <li><?= Session::get('message') ?></li>
                 <?php
                     endif;
                 ?>

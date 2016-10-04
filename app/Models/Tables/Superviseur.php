@@ -13,17 +13,15 @@ use Helpers\DB\Entity;
 
 class Superviseur extends Entity
 {
-
-    public $idSuperviseur;
     public $pseudo;
     public $motDePasse;
 
-    public function __construct($idSuperviseur = false, $pseudo = "", $motDePasse = "")
+    public function __construct($pseudo = "", $motDePasse = "", $id = false)
     {
         parent::__construct();
-        $this->idSuperviseur = $idSuperviseur;
-        $this->motDePasse = $motDePasse;
         $this->pseudo = $pseudo;
+        $this->motDePasse = $motDePasse;
+        $this->id = $id;
     }
 
 }

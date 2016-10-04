@@ -13,14 +13,13 @@ use Helpers\DB\Entity;
 
 class Jeu extends Entity
 {
-    public $idJeu;
     public $nom;
 
-    public function __construct($idJeu = false, $nom)
+    public function __construct($nom = "", $id = false)
     {
         parent::__construct();
-        $this->idJeu = $idJeu;
         $this->nom = $nom;
+        $this->id = $id;
     }
 
 }

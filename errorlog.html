@@ -1,0 +1,25 @@
+<h3>Exception information:</h3>
+
+           <p><strong>Date:</strong> Oct 04, 2016 10:44AM</p>
+
+           <p><strong>Message:</strong> SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'test' for column 'id' at row 1 INSERT INTO superviseur VALUES(?,?,?)</p>
+
+           <p><strong>Code:</strong> 0</p>
+
+           <p><strong>File:</strong> C:\wamp\www\epsi_workshop\app\Helpers\DB\DBManager.php</p>
+
+           <p><strong>Line:</strong> 59</p>
+
+           <h3>Stack trace:</h3>
+
+           <pre>#0 C:\wamp\www\epsi_workshop\app\Helpers\DB\EntityManager.php(76): Helpers\DB\DBManager->execute(Array)
+#1 C:\wamp\www\epsi_workshop\app\Helpers\DB\EntityManager.php(43): Helpers\DB\EntityManager->insert(Object(Models\Tables\Superviseur))
+#2 C:\wamp\www\epsi_workshop\app\Controllers\Connexion.php(101): Helpers\DB\EntityManager->save(Object(Models\Tables\Superviseur))
+#3 [internal function]: Controllers\Connexion->inscription()
+#4 C:\wamp\www\epsi_workshop\app\Core\Router.php(126): call_user_func_array(Array, Array)
+#5 C:\wamp\www\epsi_workshop\app\Core\Router.php(217): Core\Router::invokeObject('Controllers\\Con...')
+#6 C:\wamp\www\epsi_workshop\app\Core\routes.php(31): Core\Router::dispatch()
+#7 C:\wamp\www\epsi_workshop\index.php(81): require('C:\\wamp\\www\\eps...')
+#8 {main}</pre>
+
+           <hr />

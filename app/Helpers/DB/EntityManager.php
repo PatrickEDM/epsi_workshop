@@ -64,14 +64,16 @@ class EntityManager {
             $sql = $sql . ",?";
         $sql = $sql . ")";
 
+        $instance->setId($this->dbmanager->lastInsertId());
+
         $values = array();
         foreach ($vars as $k => $v) {
             $values[] = $instance->$k;
         }
+
         print($sql);
         $this->dbmanager->prepare($sql);
         $this->dbmanager->execute($values);
-        $instance->setId($this->dbmanager->lastInsertId());
     }
 
 

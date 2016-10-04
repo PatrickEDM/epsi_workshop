@@ -13,18 +13,17 @@ use Helpers\DB\Entity;
 
 class Statistique extends Entity
 {
-    public $idStatistique;
     public $date;
     public $idJoueur;
     public $idJeu;
 
-    public function __construct($idStatistique = false, $date, $idJoueur, $idJeu)
+    public function __construct($date  = "", $idJoueur = "", $idJeu = "", $id = false)
     {
         parent::__construct();
-        $this->idStatistique = $idStatistique;
         $this->date = $date;
         $this->idJoueur = $idJoueur;
         $this->idJeu = $idJeu;
+        $this->id = $id;
     }
 
 }

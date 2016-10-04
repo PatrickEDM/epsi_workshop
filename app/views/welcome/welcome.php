@@ -7,24 +7,29 @@
     <div class="col-md-offset-1 col-md-3 col-sm-12">
         <div id="login">
             <h1>Bienvenue</h1>
-
+            <?php
+            if(Session::get('loggedin') == false):
+            ?>
             <div class="login">
                 <form class="form" action="<?= DIR;?>connexion" method="post">
-                    <input type="text" placeholder="Nom d'utilisateur">
-                    <input type="password" placeholder="Mot de passe">
+                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur">
+                    <input type="password" name="password" placeholder="Mot de passe">
                     <button type="submit" id="login-button">Connexion</button>
                 </form>
                 <a href="#" id="register_anim">Vous n'avez pas de compte ?</a>
             </div>
             <div class="register">
                 <form class="form" action="<?= DIR;?>inscription" method="post">
-                    <input type="text" placeholder="Nom d'utilisateur">
-                    <input type="password" placeholder="Mot de passe">
-                    <input type="password" placeholder="Confirmer le mot de passe">
+                    <input type="text" name="pseudo" placeholder="Nom d'utilisateur">
+                    <input type="password" name="password" placeholder="Mot de passe">
+                    <input type="password" name="password-again" placeholder="Confirmer le mot de passe">
                     <button type="submit" id="register-button">S'inscrire</button>
                 </form>
                 <a href="#" id="login_anim">Vous avez déjà un compte ?</a>
             </div>
+            <?php
+            endif;
+            ?>
         </div>
     </div>
     <div class="col-md-offset-2 col-md-5">

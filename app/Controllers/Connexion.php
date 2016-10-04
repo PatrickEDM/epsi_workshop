@@ -41,7 +41,6 @@ class Connexion extends Controller
 
     public function connexion() {
 
-        die('connexion');
         $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['login']);
         if ($superviseur == false || Password::verify($_POST['password'], $superviseur->motdepasse) == false){
             //Ajouter un message d'erreur
@@ -59,7 +58,7 @@ class Connexion extends Controller
             Session::set('message', "Bienvenue $superviseur->pseudo");
             Session::set('message_type', 'alert-success');
         }
-           Url::redirect();
+           Url::redirect(DIR);
     }
 
     public function deconnexion()
@@ -70,7 +69,6 @@ class Connexion extends Controller
 
     public function inscription()
     {
-        die("toto");
         $_POST = Gump::sanitize($_POST);
         if (isset($_POST['pseudo'])) {
             //Validate data using Gump
@@ -91,25 +89,21 @@ class Connexion extends Controller
                     $error[] = 'Ce compte existe déjà';
 
                 $data['erreurs'] = $error;
-                View::renderTemplate('header', $data);
-                View::render('connexion/inscription', $data);
-                View::renderTemplate('footer', $data);
-
-
             } else
-                $error = $is_valid;
+                $error = false;
 
             if (!$error) {
                 //Register and return the data as an array $data[]
-                $pseudo = $_POST['pseudo']; $password = Password::make($_POST['password']);
+                $pseudo = $_POST['pseudo'];
+                $password = Password::make($_POST['password']);
+
                 $superviseur = new Superviseur($pseudo, $password);
-                print_r($superviseur);
                 $this->entityManager->save($superviseur);
                 Session::set('id', $superviseur->getId());
                 Session::set('pseudo', $superviseur->pseudo);
                 Session::set('loggedin', true);
-                Url::redirect();
             }
+            Url::redirect();
         }
     }
 }
