@@ -4,7 +4,7 @@
 ?>
 
 <div class="row center">
-    <div class="col-md-offset-1 col-md-3">
+    <div class="col-md-offset-1 col-md-3 col-sm-12">
         <div id="login">
             <h1>Bienvenue</h1>
 
