@@ -16,6 +16,10 @@ Router::any('', 'Controllers\Welcome@index');
 Router::any('connexion','Controllers\Connexion@connexion');
 Router::any('inscription','Controllers\Connexion@inscription');
 Router::any('deconnexion','Controllers\Connexion@deconnexion');
+Router::any('dashboard','Controllers\Superviseur@dashboard');
+Router::any('inscription_joueur','Controllers\Superviseur@ajouterJoueur');
+Router::any('supprimer_joueur/(:any)','Controllers\Superviseur@supprimerJoueur');
+Router::any('activer_joueur/(:any)','Controllers\Superviseur@connexionJoueur');
 
 /** Module routes. */
 $hooks = Hooks::get();

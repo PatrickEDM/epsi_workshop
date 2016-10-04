@@ -54,7 +54,7 @@ $hooks = Hooks::get();
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
-                <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
+                <li><a href='<?= DIR?>dashboard/'>Gérer les utilisateurs</a></li>
                 <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
                 <li><?= Session::get('message') ?></li>
             </ul>

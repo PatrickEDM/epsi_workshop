@@ -12,6 +12,8 @@ namespace Controllers;
 use Core\Controller;
 use Helpers\DB\EntityManager;
 use Helpers\Session;
+use Core\View;
+use Helpers\Url;
 use Models\Queries\JoueurSQL;
 use Models\Tables\Joueur;
 
@@ -28,13 +30,22 @@ class Superviseur extends Controller
         $this->joueurSQL = new JoueurSQL();
     }
 
+    public function dashboard(){
+
+        $data['joueurs'] = $this->joueurSQL->prepareFindByIdsuperviseur(Session::get('id'))->execute();
+
+
+        View::renderTemplate('header', $data);
+        View::render('manage_user/users', $data);
+        View::renderTemplate('footer', $data);
+    }
 
     public function ajouterJoueur()
     {
         // Récuperation des variables via un formulaire pour ajouter une personne sous sa tutelle
         $prenom =  $_POST['prenom'];
         $nom = $_POST['nom'];
-        $condition = " nom = ".$nom." and prenom = ".$prenom;
+        $condition = " nom = '".$nom."' and prenom = '".$prenom."'";
         $joueur = $this->joueurSQL->prepareFindWithCondition($condition)->execute();
         if($joueur)
         {
@@ -47,6 +58,7 @@ class Superviseur extends Controller
             $joueur = new Joueur($prenom,$nom,$idSuperviseur);
             $this->entityManager->save($joueur);
         }
+        Url::redirect(dashboard);
     }
 
     public function supprimerJoueur($id)
@@ -54,7 +66,7 @@ class Superviseur extends Controller
 
         $joueur = $this->joueurSQL->findById($id);
         $this->entityManager->delete($joueur);
-
+        Url::redirect(dashboard);
     }
 
     public function connexionJoueur($joueur)
@@ -65,6 +77,8 @@ class Superviseur extends Controller
         Session::set('idJoueur',$joueur->id);
         Session::set('nomJoueur',$joueur->nom);
         Session::set('prenomJoueur',$joueur->prenom);
+        Session::set('joueurConnecte', true);
+        Url::redirect(dashboard);
     }
 
 }
