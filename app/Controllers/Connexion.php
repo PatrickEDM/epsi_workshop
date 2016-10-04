@@ -43,7 +43,7 @@ class Connexion extends Controller
     public function connexion() {
 
         $superviseur = $this->superviseurSQL->prepareFindByLogin($_POST['login']);
-        if ($superviseur == false || Password::verify($_POST['password'], $superviseur->MotDePasse) == false){
+        if ($superviseur == false || Password::verify($_POST['password'], $superviseur->motdepasse) == false){
             //Ajouter un message d'erreur
             Url::redirect();
         }
@@ -54,9 +54,9 @@ class Connexion extends Controller
         if (!$error) {
             Session::set('loggedin', true);
             Session::set('id', $superviseur->getId());
-            Session::set('login', $superviseur->Pseudo);
+            Session::set('login', $superviseur->pseudo);
 
-            Session::set('message', "Bienvenue $superviseur->Pseudo");
+            Session::set('message', "Bienvenue $superviseur->pseudo");
             Session::set('message_type', 'alert-success');
         }
            Url::redirect();
@@ -89,11 +89,6 @@ class Connexion extends Controller
                 if ($superviseur != false)
                     $error[] = 'Ce compte existe déjà';
 
-                $superviseur = $this->superviseurSQL->prepareFindByEmail($_POST['email'])->execute();
-                //Test for dupicate email address
-                if (count($superviseur) > 0)
-                    $error[] = 'Ce compte email existe déjà.';
-
                 $data['erreurs'] = $error;
                 View::renderTemplate('header', $data);
                 View::render('connexion/inscription', $data);
@@ -110,7 +105,7 @@ class Connexion extends Controller
                 print_r($superviseur);
                 $this->entityManager->save($superviseur);
                 Session::set('id', $superviseur->getId());
-                Session::set('pseudo', $superviseur->Pseudo);
+                Session::set('pseudo', $superviseur->pseudo);
                 Session::set('loggedin', true);
                 Url::redirect();
             }
