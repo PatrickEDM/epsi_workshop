@@ -5,6 +5,11 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+a {
+  color: black;
+  text-decoration: none; /* no underline */
+}
+a:hover{text-decoration: none;color: black;}
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 
 #login{
@@ -96,12 +101,20 @@ body{
 #login button:hover{
      background-color: #9C458C;
 }
-
+#register_anim a{}
 .accueil_txt{
     text-align: right;
     color: white;
 }
 
-.register{
-    display: none;
+.register{display: none;}
+.center {
+    height: 100vh;
+    display: -webkit-flex;
+    display:         flex;
+    -webkit-align-items: center;
+          align-items: center;
+    -webkit-justify-content: center;
+          justify-content: center;
 }
+.navbar-brand{color: white}

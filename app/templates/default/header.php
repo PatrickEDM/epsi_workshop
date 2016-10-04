@@ -15,15 +15,15 @@ $hooks = Hooks::get();
 <html lang="<?php echo LANGUAGE_CODE; ?>">
 <head>
 
-	<!-- Site meta -->
-	<meta charset="utf-8">
-	<?php
+    <!-- Site meta -->
+    <meta charset="utf-8">
+    <?php
 	//hook for plugging in meta tags
 	$hooks->run('meta');
-	?>
-	<title><?php echo $data['title'].' - '.SITETITLE; //SITETITLE defined in app/Core/Config.php ?></title>
-	<!-- CSS -->
-	<?php
+    ?>
+    <title><?php echo $data['title'].' - '.SITETITLE; //SITETITLE defined in app/Core/Config.php ?></title>
+    <!-- CSS -->
+    <?php
 	Assets::css(array(
 		'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
 		Url::templatePath() . 'css/style.css',
@@ -31,7 +31,7 @@ $hooks = Hooks::get();
 
 	//hook for plugging in css
 	$hooks->run('css');
-	?>
+    ?>
 
 </head>
 
@@ -50,15 +50,15 @@ $hooks = Hooks::get();
         <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="<?= DIR?>" class="navbar-brand">NAME</a>
+                    <a href="<?= DIR?>" class="navbar-brand">Memory Training</a>
                 </li>
                 <?php
                     if(Session::get('loggedin') == true):
                 ?>
-                    <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
-                    <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
-                    <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
-                    <li><?= Session::get('message') ?></li>
+                <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
+                <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
+                <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
+                <li><?= Session::get('message') ?></li>
                 <?php
                     endif;
                 ?>
@@ -67,7 +67,7 @@ $hooks = Hooks::get();
     </div>
 </header>
 
-<body style="padding-top:60px;">
+<body>
 <?php
 //hook for running code after body tag
 $hooks->run('afterBody');
