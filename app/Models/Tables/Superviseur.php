@@ -23,10 +23,7 @@ class Superviseur extends Entity
         parent::__construct();
         $this->idSuperviseur = $idSuperviseur;
         $this->motDePasse = $motDePasse;
-        $this->nom = $nom;
-        $this->prenom=$prenom;
-        $this->email = $email;
-        $this->motDePasse = $motDePasse;
+        $this->pseudo = $pseudo;
     }
 
 }
