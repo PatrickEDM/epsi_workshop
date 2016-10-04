@@ -69,15 +69,23 @@ class Superviseur extends Controller
         Url::redirect(dashboard);
     }
 
-    public function connexionJoueur($joueur)
+    public function connexionJoueur($id)
     {
         // /!\ Attention, aucun rapport avec la connexion, on garde juste en session les données relatives au Joueur sous la tutelle du
         // superviseur connecté
-
+        $joueur = $this->joueurSQL->findById($id);
         Session::set('idJoueur',$joueur->id);
         Session::set('nomJoueur',$joueur->nom);
         Session::set('prenomJoueur',$joueur->prenom);
         Session::set('joueurConnecte', true);
+        Url::redirect(profil);
+    }
+
+    public function deconnexionJoueur(){
+        Session::destroy('idJoueur', false);
+        Session::destroy('nomJoueur', false);
+        Session::destroy('prenomJoueur', false);
+        Session::destroy('joueurConnecte', false);
         Url::redirect(dashboard);
     }
 

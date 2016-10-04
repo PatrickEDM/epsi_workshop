@@ -53,10 +53,20 @@ $hooks = Hooks::get();
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <?php
+                if(Session::get('joueurConnecte') == true):
+                ?>
+                <li><?= "Bienvenue ".Session::get('prenomJoueur').", "; ?></li>
                 <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
-                <li><a href='<?= DIR?>dashboard/'>Gérer les utilisateurs</a></li>
-                <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
-                <li><?= Session::get('message') ?></li>
+                <li><a href='<?= DIR?>desactiver_joueur'>Deconnexion</a></li>
+                <?php
+                else:
+                ?>
+                    <li><a href='<?= DIR?>dashboard/'>Gérer les utilisateurs</a></li>
+                    <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
+                <?php
+                endif;
+                ?>
             </ul>
         </div><!-- /.container-fluid -->
     </div>
