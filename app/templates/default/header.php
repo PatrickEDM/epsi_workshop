@@ -27,8 +27,12 @@ $hooks = Hooks::get();
 	Assets::css(array(
 		'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
 		Url::templatePath() . 'css/style.css',
-		Url::templatePath() . 'js/stats.js',
+		Url::templatePath() . 'css/chart.css',
 	));
+
+	Assets::js(array(
+	Url::templatePath() . 'js/chart.js',
+    ));
 
 	//hook for plugging in css
 	$hooks->run('css');
@@ -56,7 +60,7 @@ $hooks = Hooks::get();
                 <?php
                 if(Session::get('joueurConnecte') == true):
                 ?>
-                <li><?= "Bienvenue ".Session::get('prenomJoueur').", "; ?></li>
+                <li class="welcome"><a href="#"><?= "Bienvenue ".Session::get('prenomJoueur').", "; ?></a></li>
                 <li><a href='<?= DIR?>profil/<?= Session::get('idJoueur'); ?>'>Profil</a></li>
                 <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
                 <li><a href='<?= DIR?>desactiver_joueur'>Deconnexion</a></li>
