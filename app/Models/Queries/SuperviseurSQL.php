@@ -23,8 +23,8 @@ class SuperviseurSQL extends Query
 
     public function getPseudoById($id)
     {
-        $personne = $this->findById($id);
-        return $personne->pseudo;
+        $superviseur = $this->findById($id);
+        return $superviseur ->pseudo;
     }
 
 }
