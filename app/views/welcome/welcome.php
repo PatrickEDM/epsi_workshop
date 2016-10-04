@@ -3,7 +3,7 @@
     use Helpers\Session;
 ?>
 
-<div class="row vertical-align">
+<div class="row">
     <div class="col-md-offset-1 col-md-3">
         <div id="login">
             <h1>Bienvenue</h1>
