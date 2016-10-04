@@ -17,9 +17,8 @@ use Helpers\Url;
 use Helpers\AjaxHandler as Ajax;
 use Core\Controller;
 use Core\View;
-use Models\Tables\Personne;
-use Models\Tables\Score;
-use Models\Queries\PersonneSQL;
+use Models\Tables\Superviseur;
+use Models\Queries\SuperviseurSQL;
 
 class Connexion extends Controller
 {
