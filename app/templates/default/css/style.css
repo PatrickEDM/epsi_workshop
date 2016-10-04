@@ -1,0 +1,116 @@
+body{
+    background: url(../img/background.png) no-repeat center fixed;
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover; /* version standardisée */
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+
+#login{
+    margin: 0 auto;
+    text-align: center;
+
+    color: white;
+    font-weight: 300;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:    white;
+    font-weight: 300;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    white;
+    opacity:  1;
+    font-weight: 300;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    white;
+    opacity:  1;
+    font-weight: 300;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    white;
+    font-weight: 300;
+}
+
+#login h1{
+    font-size: 40px;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    font-weight: 200;
+}
+
+#login form {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+#login input {
+    display: block;
+    appearance: none;
+    outline: 0;
+    border: 1px solid;
+    border-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0.2);
+    width: 250px;
+
+    border-radius: 3px;
+    padding: 10px 15px;
+    margin: 0 auto 10px auto;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+
+    color: white;
+
+    transition-duration: 0.25s;
+    font-weight: 300;
+}
+
+#login input:hover{
+     background-color: rgba(255,255,255,0.4);
+ }
+
+#login input:focus{
+     background-color: rgba(255,255,255,0.45);
+     width: 300px;
+
+     color: white;
+ }
+
+#login button {
+    appearance: none;
+    outline: 0;
+    background-color: #863D8A;
+    border: 0;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    transition-duration: 0.25s;
+}
+#login button:hover{
+     background-color: #9C458C;
+}
+
+.vertical-align {
+    display: flex;
+    flex-direction: row;
+}
+
+.vertical-align > [class^="col-"],
+.vertical-align > [class*=" col-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Optional, to align inner items
+                              horizontally inside the column */
+}
+
+.accueil_txt{
+    text-align: right;
+    color: white;
+}

@@ -22,40 +22,6 @@ $hooks = Hooks::get();
 	$hooks->run('meta');
 	?>
 	<title><?php echo $data['title'].' - '.SITETITLE; //SITETITLE defined in app/Core/Config.php ?></title>
-
-
-    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-            </div>
-            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="<?= DIR?>" class="navbar-brand">NAME</a>
-                    </li>
-                    <?php
-                        if(Session::get('loggedin') == true):
-                    ?>
-                        <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
-                        <li><?= Session::get('message') ?></li>
-                    <?php
-                        else:
-                    ?>
-                        <li><a href='<?= DIR?>connexion/'>Connexion</a></li>
-                    <?php
-                        endif;
-                    ?>
-                </ul>
-            </nav>
-        </div>
-    </header>
 	<!-- CSS -->
 	<?php
 	Assets::css(array(
@@ -70,10 +36,42 @@ $hooks = Hooks::get();
 </head>
 
 
+<header class="navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="<?= DIR?>" class="navbar-brand">NAME</a>
+                </li>
+                <?php
+                    if(Session::get('loggedin') == true):
+                ?>
+                    <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
+                    <li><a href='<?= DIR?>utilisateur/'>Gérer les utilisateurs</a></li>
+                    <li><a href='<?= DIR?>deconnexion/'>Deconnexion</a></li>
+                    <li><?= Session::get('message') ?></li>
+                <?php
+                    endif;
+                ?>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <body style="padding-top:60px;">
 <?php
 //hook for running code after body tag
 $hooks->run('afterBody');
 ?>
+
 
 <div class="container-fluid">

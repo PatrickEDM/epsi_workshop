@@ -31,7 +31,7 @@ class Connexion extends Controller
         $this->userSQL = new PersonneSQL();
         $this->entityManager = EntityManager::getInstance();
     }
-    
+
     public function index()
     {
         $data['title'] = 'Connexion';
@@ -44,13 +44,8 @@ class Connexion extends Controller
 
         $user = $this->userSQL->prepareFindByLogin($_POST['login']);
         if ($user == false || Password::verify($_POST['password'], $user->motdepasse) == false){
-            // changer le render pour un url::redirect mais ajouter un message dans la session de mauvaise donnée
-            $data['erreurCo'] = "Mauvaise données";
-            $data['title'] = "Connexion";
-            View::renderTemplate('header', $data);
-            View::render('connexion/connexion', $data);
-            View::renderTemplate('footer', $data);
-            exit();
+            //Ajouter un message d'erreur
+            Url::redirect();
         }
         else {
             // $is_valid holds an array for the errors.
