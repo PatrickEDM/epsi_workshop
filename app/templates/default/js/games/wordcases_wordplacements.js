@@ -64,22 +64,17 @@ function point(posX, posY)
 
 function VerifyWord(final)
 {
-    //$('#currentword').text(currentWord);
     var wordFound = false;
     for(var i = 0; i < wordList.length; i++)
-    {
         if(currentWord == wordList[i])
-        {
             wordFound = true;
-            $(".word").each(function() {
-                if($(this).attr("wordId") == i)
-                    $(this).addClass("wordfound");
-            });
-        }
-    }
     if((mobileDevice && wordFound) || (!mobileDevice && final && wordFound))
     {
         stopWordSelection();
+        $(".word").each(function() {
+            if($(this).attr("wordId") == i)
+                $(this).addClass("wordfound");
+        });
         currentWordCells.forEach(function(value){
             $(value).addClass("rightcell");
         });
