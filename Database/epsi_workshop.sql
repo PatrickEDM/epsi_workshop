@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2
+-- version 4.5.5.1
 -- http://www.phpmyadmin.net
 --
--- Client :  localhost
--- Généré le :  Mar 04 Octobre 2016 à 16:36
--- Version du serveur :  5.6.32-1+deb.sury.org~xenial+0.1
--- Version de PHP :  7.0.11-1+deb.sury.org~xenial+1
+-- Client :  127.0.0.1
+-- Généré le :  Mer 05 Octobre 2016 à 09:48
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,10 +26,18 @@ SET time_zone = "+00:00";
 -- Structure de la table `jeu`
 --
 
+DROP TABLE IF EXISTS `jeu`;
 CREATE TABLE `jeu` (
   `nom` text NOT NULL,
   `id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `jeu`
+--
+
+INSERT INTO `jeu` (`nom`, `id`) VALUES
+('Memory', 1);
 
 -- --------------------------------------------------------
 
@@ -37,6 +45,7 @@ CREATE TABLE `jeu` (
 -- Structure de la table `joueur`
 --
 
+DROP TABLE IF EXISTS `joueur`;
 CREATE TABLE `joueur` (
   `prenom` varchar(50) NOT NULL,
   `nom` varchar(50) NOT NULL,
@@ -44,12 +53,20 @@ CREATE TABLE `joueur` (
   `id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Contenu de la table `joueur`
+--
+
+INSERT INTO `joueur` (`prenom`, `nom`, `idSuperviseur`, `id`) VALUES
+('Gilbert', 'Montagné', 5, 17);
+
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `statistique`
 --
 
+DROP TABLE IF EXISTS `statistique`;
 CREATE TABLE `statistique` (
   `date` date NOT NULL,
   `score` int(10) UNSIGNED NOT NULL,
@@ -64,6 +81,7 @@ CREATE TABLE `statistique` (
 -- Structure de la table `superviseur`
 --
 
+DROP TABLE IF EXISTS `superviseur`;
 CREATE TABLE `superviseur` (
   `pseudo` varchar(50) NOT NULL,
   `motDePasse` varchar(100) NOT NULL,
@@ -118,12 +136,12 @@ ALTER TABLE `superviseur`
 -- AUTO_INCREMENT pour la table `jeu`
 --
 ALTER TABLE `jeu`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `joueur`
 --
 ALTER TABLE `joueur`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT pour la table `statistique`
 --
