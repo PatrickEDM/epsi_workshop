@@ -2,43 +2,15 @@
 use Helpers\Url;
 use Helpers\Assets;
 
+Assets::css(array(
+	Url::templatePath() . 'css/memory.css',
+));
 
 Assets::js(array(
     Url::templatePath() . 'js/games/memory.js',
 ));
 
 ?>
-
-<style>
-    #case
-    {
-        margin: 20px 0px 0px 400px;
-        width: 625px;
-    }
-    #case div
-    {
-        float: left;
-        width: 105px;
-        height: 105px;
-        background: #3b5998;
-        margin: 5px;
-        border: 1px solid #999;
-        -webkit-border-radius: .5em;
-        -moz-border-radius: .5em;
-    }
-
-    .bouton {
-        background-color: #3b5998; /* bleu facebook */
-        border: none;
-        color: white;
-        padding: 10px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 10px;
-        border-radius: 8px;
-    }
-</style>
 
 <script type="text/javascript">
 var voirimg = "";
@@ -102,45 +74,30 @@ function finish()
 }
 </script>
 
-<div>Jeu du Memory</div>
-<div>
-    <table>
-        <tr>
-            <td>
-                Mouvements: <input type="text" id="compteurmouvement" name="cnt" size="6" readonly />
-            </td>
-            <td style="padding-left: 10px;">
-                Temps: <input type="text" id="compteurtemps" name="temps" size="6" readonly />
-            </td>
-            <td
-            <div class="bouton">
-                <p>
-                    <a href="http://www.team-violet.tk" id="relance" style="text-decoration:none; color: #FFFFFF;">relancer</a
-                </p>
-            </div>
-            </td>
-        </tr>
-    </table>
-</div>
-<div id="case" onclick="count();" align="center">
-    <div id="image1" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/haut_parleur.png" style='display: none; border: none;' id="im"></div>
-    <div id="image2" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/disquette.png" style='display: none; border: none;' id="im1"></div>
-    <div id="image3" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/micro.png" style='display: none; border: none;' id="im2"></div>
-    <div id="image4" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tel.png" style='display: none; border: none;' id="im3"></div>
-    <div id="image5" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/crayon.png" style='display: none; border: none; ' id="im4"></div>
-    <div id="image6" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/velo.png" style='display: none; border: none; ' id="im5"></div>
-    <div id="image7" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/logo_android.png" style='display: none; border: none; ' id="im6"></div>
-    <div id="image8" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tablette.png" style='display: none; border: none; ' id="im7"></div>
-    <div id="image9" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/monitor.png" style='display: none; border: none; ' id="im8"></div>
-    <div id="image10" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/cahier.png" style='display: none; border: none; ' id="im9"></div>
-    <div id="image11" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/haut_parleur.png" style='display: none; border: none; ' id="im10"></div>
-    <div id="image12" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/disquette.png" style='display: none; border: none; ' id="im11"></div>
-    <div id="image13" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/micro.png" style='display: none; border: none; ' id="im12"></div>
-    <div id="image14" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tel.png" style='display: none; border: none; ' id="im13"></div>
-    <div id="image15" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/crayon.png" style='display: none; border: none; ' id="im14"></div>
-    <div id="image16" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/velo.png" style='display: none; border: none; ' id="im15"></div>
-    <div id="image17" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/logo_android.png" style='display: none; border: none; ' id="im16"></div>
-    <div id="image18" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tablette.png" style='display: none; border: none; ' id="im17"></div>
-    <div id="image19" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/monitor.png" style='display: none; border: none; ' id="im18"></div>
-    <div id="image20" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/cahier.png" style='display: none; border: none; ' id="im19"></div>
+<div class="title">Jeu du Memory</div>
+<div class="row">
+    <div class="col-md-offset-1 col-md-3 col-sm-12">
+        <div id="case" onclick="count();">
+            <div id="image1" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/haut_parleur.png" id="im"></div>
+            <div id="image2" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/disquette.png" id="im1"></div>
+            <div id="image3" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/micro.png" id="im2"></div>
+            <div id="image4" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tel.png" id="im3"></div>
+            <div id="image5" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/crayon.png"  id="im4"></div>
+            <div id="image6" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/velo.png" id="im5"></div>
+            <div id="image7" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/logo_android.png" id="im6"></div>
+            <div id="image8" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tablette.png" id="im7"></div>
+            <div id="image9" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/monitor.png" id="im8"></div>
+            <div id="image10" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/cahier.png" id="im9"></div>
+            <div id="image11" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/haut_parleur.png" id="im10"></div>
+            <div id="image12" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/disquette.png" id="im11"></div>
+            <div id="image13" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/micro.png" id="im12"></div>
+            <div id="image14" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tel.png" id="im13"></div>
+            <div id="image15" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/crayon.png" id="im14"></div>
+            <div id="image16" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/velo.png" id="im15"></div>
+            <div id="image17" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/logo_android.png" id="im16"></div>
+            <div id="image18" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/tablette.png"  id="im17"></div>
+            <div id="image19" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/monitor.png" id="im18"></div>
+            <div id="image20" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/cahier.png"  id="im19"></div>
+        </div>
+    </div>
 </div>
