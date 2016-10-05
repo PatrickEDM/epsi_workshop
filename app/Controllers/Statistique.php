@@ -36,13 +36,6 @@ class Statistique extends Controller
         $this->entityManager->save($statistique);
     }
 
-    public function chargerScore($id)
-    {
-        $condition = "idJoueur = ".$id;
-        $statistique = $this->statistiqueSQL->prepareFindWithCondition($condition)->execute();
-        return $statistique;
-
-    }
 
 
 

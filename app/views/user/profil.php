@@ -13,7 +13,6 @@
     <div class="col-md-6 col-sm-8">
         <p>Jeux 1</p>
         <div class="ct-chart ct-perfect-fourth"></div>
-
         Créer fonction récupère nom jeux <br/>
         Créer fonction foreach game : Chartiste.Line('.ct-chart[i]',
 
