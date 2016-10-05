@@ -28,27 +28,22 @@ td
 
 .selected
 {
-    background-color: white;
-    background-color: rgba(255, 249, 142, 0.52);
-    opacity: 0.7;
+    background-color: rgb(255, 249, 142);
 }
 
 .rightcell
 {
-    background-color: white;
-    background-color: rgba(200, 255, 155, 0.79);
+    background-color: rgb(200, 255, 155);
 }
 
 .foundedcell
 {
-    background-color: white;
-    background-color: rgba(200, 255, 155, 0.44);
+    background-color: rgb(200, 255, 155);
 }
 
 .wrongcell
 {
-    background-color: white;
-    background-color: rgba(255, 131, 0, 0.35);
+    background-color: rgb(255, 177, 0);
 }
 
 .word {
@@ -80,6 +75,7 @@ td
     visibility: hidden;
     display: none;
 }
+
 #wordListDiv, #worldList{
     color:white;
 }

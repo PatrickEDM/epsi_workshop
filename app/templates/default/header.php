@@ -43,7 +43,7 @@ $hooks = Hooks::get();
 </head>
 <header class="navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="<?= Url::templatePath(); ?>img/logo_transparent.png"/></a>
+        <a class="navbar-brand" href="<?= DIR; ?>"><img src="<?= Url::templatePath(); ?>img/logo_transparent.png"/></a>
         <?php
             if(Session::get('loggedin') == true):
         ?>
@@ -64,18 +64,10 @@ $hooks = Hooks::get();
                 ?>
                 <li class="welcome"><a href="#"><?= "Bienvenue ".Session::get('prenomJoueur'); ?></a></li>
                 <li><a href='<?= DIR?>profil/<?= Session::get('idJoueur'); ?>'>Profil</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jeux<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Memory</a></li>
-                        <li><a href="#">Wordcases</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
+                <ul>
+                    <li><a href='<?= DIR?>jeux/memory'>Memory</a></li>
+                    <li><a href='<?= DIR?>jeux/motscases'>Mots casés</a></li>
+                </ul>
                 <li><a href='<?= DIR?>desactiver_joueur'>Deconnexion</a></li>
                 <?php
                 else:
