@@ -1,6 +1,13 @@
 
-var wordList = ["ALEXANDRE", "PIERRE", "ANDRE", "JACQUES"];
-var wordList2 = ["ARMOIRE", "ORDINATEUR", "PRAIRIE", "NUAGES", "ESCALIER", "PIOCHE", "CAILLOU"];
+var wordList = [];
+var dictionnary = ["ARMOIRE", "ORDINATEUR", "PRAIRIE", "NUAGES", "ESCALIER",
+    "PIOCHE", "CAILLOU", "THEIERE", "CAFE", "BOISSON",
+    "ENFANTS", "BOUTEILLE", "MAILLOT", "CHEVEUX", "VISAGE",
+    "FENETRE", "SOURIS", "CHAT", "MAISON", "IMMEUBLE",
+    "CIEL", "OCEAN", "AVION", "POULET", "CHIEN",
+    "CABANE", "FORET", "MONTAGNE", "PIERRE", "FRAISE",
+    "MUSIQUE", "GUITARE", "ECHELLE", "VOYAGE", "TRAIN",
+    "VOITURE", "TELEPHONE", "CHAMPS", "BILBOQUET"];
 var nbWordsToFind = 0;
 var nbWordsFound = 0;
 var nbRememberWords = 0;
@@ -38,7 +45,7 @@ function Replace0ByRandomLetters()
         for(var j = 0; j < nbCol; j++)
         {
             if(boardLetters[i][j] == 0)
-                boardLetters[i][j] = alphabet[Math.round(Math.random()*(alphabet.length-1))];
+                boardLetters[i][j] = "";//alphabet[Math.round(Math.random()*(alphabet.length-1))];
         }
     }
 }
@@ -72,14 +79,14 @@ function VerifyWord(final)
     {
         stopWordSelection();
         $(".word").each(function() {
-            if($(this).attr("wordId") == i)
+            if($(this).text() == currentWord)
                 $(this).addClass("wordfound");
         });
         currentWordCells.forEach(function(value){
             $(value).addClass("rightcell");
         });
         nbWordsFound++;
-        if(nbWordsFound > 1)
+        if(nbWordsFound == nbWordsToFind)
             LoadEntryWordsBox();
     }
     else if(final)
@@ -138,7 +145,7 @@ function placeWordAt(word, origin, direction)
 
 function checkPlacement(origin, word)
 {
-    var directions = [0, 1, 3];
+    var directions = [1, 3];
     var checks = 0;
     var placementWork = false;
     do
@@ -218,9 +225,30 @@ function checkPlacement2(word, origin, direction)
     return (numberOfVoidCells == numberOfCells);
 }
 
+function SelectXWords(nbWords)
+{
+
+    for(var i = 0; i < nbWords; i++)
+    {
+        if(dictionnary.length >= 1)
+        {
+            var rnd = Math.round(Math.random()*dictionnary.length-1);
+            if(dictionnary[rnd] != null && dictionnary[rnd] != "")
+            {
+                if(dictionnary[rnd].length <= nbCol)
+                    wordList.push(dictionnary[rnd]);
+            }
+
+            dictionnary.splice(rnd, 1);
+        }
+        else
+            break;
+    }
+}
+
+SelectXWords(10);
 GenerateBoardLetters();
 TryToPlaceDictionnary();
 WriteList();
 Replace0ByRandomLetters();
 GenerateBoard();
-var interval_1 = window.setInterval("VerifyEntryWord()", 200);
