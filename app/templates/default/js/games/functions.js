@@ -16,16 +16,16 @@ function shuffle()
     var shuf = $("#case div:first-child");
     var array_img = new Array();
     for (i=0; i<images.length; i++)
-    {		
+    {
         array_img[i] = $("#"+shuf.attr("id")+" img").attr("src");
         shuf = shuf.next();
     }
     var shuf = $("#case div:first-child");
     for (z=0; z<images.length; z++)
     {
-	randIndex = randomFromTo(0, array_img.length - 1);
+        randIndex = randomFromTo(0, array_img.length - 1);
         $("#"+shuf.attr("id")+" img").attr("src", array_img[randIndex]);
-	array_img.splice(randIndex, 1);
+        array_img.splice(randIndex, 1);
         shuf = shuf.next();
     }
 }
@@ -36,20 +36,20 @@ var timer=0;
 
 function timedCount()
 {
-document.getElementById('compteurtemps').value=c;
-c=c+1;
-t=setTimeout("timedCount()",1000);
+    document.getElementById('compteurtemps').value=c;
+    c=c+1;
+    t=setTimeout("timedCount()",1000);
 }
 function doTimer()
 {
-if (!timer)
-  {
-  timer=1;
-  timedCount();
-  }
+    if (!timer)
+    {
+        timer=1;
+        timedCount();
+    }
 }
 function stopCount()
 {
-clearTimeout(t);
-timer=0;
+    clearTimeout(t);
+    timer=0;
 }
