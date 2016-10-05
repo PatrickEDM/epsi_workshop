@@ -105,6 +105,7 @@ class Connexion extends Controller
                 Session::set('id', $superviseur->getId());
                 Session::set('pseudo', $superviseur->pseudo);
                 Session::set('loggedin', true);
+                Url::redirect('dashboard');
             }
             Url::redirect();
         }
