@@ -1,11 +1,9 @@
-
 body{
     background: url(../img/background.png) no-repeat center fixed;
     -webkit-background-size: cover; /* pour anciens Chrome et Safari */
     background-size: cover; /* version standardisée */
     font-family: 'Source Sans Pro', sans-serif;
 }
-
 a {
   color: black;
   text-decoration: none; /* no underline */
@@ -17,9 +15,7 @@ a:hover{text-decoration: none;color: black;}
 
 
 #login{
-
     text-align: center;
-
     color: white;
     font-weight: 300;
 }
@@ -185,7 +181,6 @@ a:hover{text-decoration: none;color: black;}
 }
 
 table {
-		overflow:hidden;
 		border:1px solid #d3d3d3;
 		background:#fefefe;
 		width:70%;
@@ -228,6 +223,10 @@ table {
 		background: -webkit-gradient(linear, 0% 0%, 0% 20%, from(#ededed), to(#e8eaeb));
 	}
 
+/* Fix for scroll issue */
+.navbar-fixed-bottom, .navbar-fixed-top{
+    position:relative;
+}
 /* mobile phone */
 @media all and (max-width: 768px) {
     .accueil_txt{
