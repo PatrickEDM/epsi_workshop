@@ -5,7 +5,7 @@ var click=1;
 function count()
 {
     var x = click++;
-    document.getElementById('compteurmouvement').value = x;
+    document.getElementById('compteurmouvement').innerHTML = x;
 }
 
 function randomFromTo(from, to)
@@ -39,7 +39,7 @@ var timer=0;
 
 function timedCount()
 {
-    document.getElementById('compteurtemps').value=c;
+    document.getElementById('compteurtemps').innerHTML=c;
     c=c+1;
     t=setTimeout("timedCount()",1000);
 }
