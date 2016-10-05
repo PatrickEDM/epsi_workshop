@@ -15,7 +15,6 @@
         <div class="ct-chart ct-perfect-fourth"></div>
         Créer fonction récupère nom jeux <br/>
         Créer fonction foreach game : Chartiste.Line('.ct-chart[i]',
-
         <script>
 		    new Chartist.Line('.ct-chart', {
   			    labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
