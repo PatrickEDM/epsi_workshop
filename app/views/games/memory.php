@@ -1,8 +1,44 @@
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="./js/jquery.js"></script>
-<script type="text/javascript" src="../../templates/default/js/games/functions.js"></script>
-<link rel="stylesheet" type="text/css" href="../../../Déposer%20les%20jeux/memory/style.css"/>
-<title>Jeu du Memory</title>
+<?php
+use Helpers\Url;
+use Helpers\Assets;
+
+
+Assets::js(array(
+    Url::templatePath() . 'js/games/memory.js',
+));
+
+?>
+
+<style>
+    #case
+    {
+        margin: 20px 0px 0px 400px;
+        width: 625px;
+    }
+    #case div
+    {
+        float: left;
+        width: 105px;
+        height: 105px;
+        background: #3b5998;
+        margin: 5px;
+        border: 1px solid #999;
+        -webkit-border-radius: .5em;
+        -moz-border-radius: .5em;
+    }
+
+    .bouton {
+        background-color: #3b5998; /* bleu facebook */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 10px;
+        border-radius: 8px;
+    }
+</style>
 
 <script type="text/javascript">
 var voirimg = "";
@@ -56,11 +92,12 @@ function finish()
     if(confirm("Voulez-vous jouer à nouveau ?"))
     {
         stopCount();
-        window.location.href="../../../index.php";
+        window.location.href= "<?= DIR; ?>games/savememory/"+cnt1+","+temps+",y";
     }
     else
     {
-        window.location.href="../../../../index.php";
+        stopCount();
+        window.location.href= "<?= DIR; ?>games/savememory/"+cnt1+","+temps+",n";
     }
 }
 </script>

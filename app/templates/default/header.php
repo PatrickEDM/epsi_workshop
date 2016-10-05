@@ -31,7 +31,8 @@ $hooks = Hooks::get();
 	));
 
 	Assets::js(array(
-	Url::templatePath() . 'js/chart.js',
+        'https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous',
+        Url::templatePath() . 'js/chart.js',
     ));
 
 	//hook for plugging in css
@@ -75,6 +76,7 @@ $hooks = Hooks::get();
             </ul>
         </div><!-- /.container-fluid -->
     </div>
+    </header>
     <?php
         endif;
     ?>

@@ -1,3 +1,6 @@
+/**
+ * Created by PatrickEDM on 05/10/2016.
+ */
 var click=1;
 function count()
 {
