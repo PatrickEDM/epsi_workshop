@@ -45,7 +45,7 @@ function Replace0ByRandomLetters()
         for(var j = 0; j < nbCol; j++)
         {
             if(boardLetters[i][j] == 0)
-                boardLetters[i][j] = "";//alphabet[Math.round(Math.random()*(alphabet.length-1))];
+                boardLetters[i][j] = alphabet[Math.round(Math.random()*(alphabet.length-1))];
         }
     }
 }
