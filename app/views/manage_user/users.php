@@ -1,10 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: PatrickEDM
- * Date: 04/10/2016
- * Time: 13:34
- */
+use Helpers\Url;
+use Helpers\Assets;
+
+Assets::css(array(
+	Url::templatePath() . 'css/table.css',
+));
+
 
 ?>
 

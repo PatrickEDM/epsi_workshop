@@ -1,12 +1,6 @@
 <?php
 use Helpers\Url;
 use Helpers\Assets;
-
-Assets::css(array(
-	Url::templatePath() . 'css/wordcases_style.css',
-));
-
-
 ?>
 
 
@@ -15,7 +9,7 @@ Assets::css(array(
 <!-- ================================================================================== -->
 <br/><br/>
 <p id="score"></p>
-<div class="screen">
+<div class="screen noselect">
 
 </div>
 <div id="wordListDiv">
