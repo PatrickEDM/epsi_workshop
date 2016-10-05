@@ -43,7 +43,7 @@ $hooks = Hooks::get();
 </head>
 <header class="navbar-fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="<?= Url::templatePath(); ?>img/logo_transparent.png"/></a>
+        <a class="navbar-brand" href="<?= DIR; ?>"><img src="<?= Url::templatePath(); ?>img/logo_transparent.png"/></a>
         <?php
             if(Session::get('loggedin') == true):
         ?>
@@ -64,7 +64,10 @@ $hooks = Hooks::get();
                 ?>
                 <li class="welcome"><a href="#"><?= "Bienvenue ".Session::get('prenomJoueur'); ?></a></li>
                 <li><a href='<?= DIR?>profil/<?= Session::get('idJoueur'); ?>'>Profil</a></li>
-                <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
+                <ul>
+                    <li><a href='<?= DIR?>jeux/memory'>Memory</a></li>
+                    <li><a href='<?= DIR?>jeux/motscases'>Mots casés</a></li>
+                </ul>
                 <li><a href='<?= DIR?>desactiver_joueur'>Deconnexion</a></li>
                 <?php
                 else:
