@@ -60,7 +60,7 @@ $hooks = Hooks::get();
                 <?php
                 if(Session::get('joueurConnecte') == true):
                 ?>
-                <li class="welcome"><a href="#"><?= "Bienvenue ".Session::get('prenomJoueur').", "; ?></a></li>
+                <li class="welcome"><a href="#"><?= "Bienvenue ".Session::get('prenomJoueur'); ?></a></li>
                 <li><a href='<?= DIR?>profil/<?= Session::get('idJoueur'); ?>'>Profil</a></li>
                 <li><a href='<?= DIR?>jeux/'>Jeux</a></li>
                 <li><a href='<?= DIR?>desactiver_joueur'>Deconnexion</a></li>
