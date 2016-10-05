@@ -58,8 +58,8 @@ $(document).ready(function() {
 });
 function finish()
 {
-    var cnt1 = $("#compteurmouvement").val();
-    var temps=$("#compteurtemps").val();
+    var cnt1 = document.getElementById('compteurmouvement').innerHTML;
+    var temps= document.getElementById('compteurtemps').innerHTML;
     alert("Félicitations! Vous avez gagné avec un total de : "+cnt1+" mouvements et en : "+temps+" secondes");
     if(confirm("Voulez-vous jouer à nouveau ?"))
     {
@@ -75,6 +75,8 @@ function finish()
 </script>
 
 <div class="title">Jeu du Memory</div>
+<p>Mouvement : <span id="compteurmouvement"></span></p>
+<p>Temps : <span id="compteurtemps"></span></p>
 <div class="row">
     <div class="col-md-offset-1 col-md-3 col-sm-12">
         <div id="case" onclick="count();">
