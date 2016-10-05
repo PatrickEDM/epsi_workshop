@@ -8,7 +8,7 @@
 
 ?>
 
-<form class="form" action="<?= DIR;?>inscription_joueur" method="post">
+<form id="adduser" class="form" action="<?= DIR;?>inscription_joueur" method="post">
     <input type="text" name="nom" placeholder="Nom">
     <input type="text" name="prenom" placeholder="Prénom">
     <button type="submit" id="joueur-button">Ajouter un utilisateur</button>
