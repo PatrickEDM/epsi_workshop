@@ -23,6 +23,7 @@ Router::any('activer_joueur/(:any)','Controllers\Superviseur@connexionJoueur');
 Router::any('desactiver_joueur','Controllers\Superviseur@deconnexionJoueur');
 Router::any('profil/(:any)','Controllers\Joueurgestion@profil');
 Router::any('games/memory','Controllers\Games@memory');
+Router::any('games/wordcases','Controllers\Games@wordcases');
 
 /** Module routes. */
 $hooks = Hooks::get();

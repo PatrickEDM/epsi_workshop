@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>MotsCases</title>
+<?php
+use Helpers\Url;
+use Helpers\Assets;
 
-    <!-- Modifier les appels des feuilles de style css suivantes pour les trouver. -->
-    <link rel="stylesheet" href="Style/wordcases_style.css"/>
-    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <!-- Fin des appels de feuilles de style css -->
-</head>
-<body>
+Assets::css(array(
+	Url::templatePath() . 'css/wordcases_style.css',
+));
+
+
+?>
 
 
 <!-- ================================================================================== -->
@@ -32,16 +30,12 @@
 <!-- Fin des éléments du jeu -->
 <!-- ================================================================================== -->
 
+<?php
+Assets::js(array(
+    Url::templatePath() . 'js/games/wordcases_main.js',
+    Url::templatePath() . 'js/games/wordcases_inputs.js',
+    Url::templatePath() . 'js/games/wordcases_wordplacements.js',
+    Url::templatePath() . 'js/games/wordcases_rememberwords.js',
+));
+?>
 
-<!-- Modifier les appels des scripts suivants pour les trouver. Ne pas changer l'ordre. -->
-<!-- Scripts complémentaires -->
-<script src="JQuery/jquery-2.1.4.min.js"></script>
-<script src="Bootstrap/js/bootstrap.min.js"></script>
-<!-- Scripts du jeu -->
-<script src="wordcases_main.js"></script>
-<script src="wordcases_inputs.js"></script>
-<script src="wordcases_wordPlacement.js"></script>
-<script src="wordcases_rememberWords.js"></script>
-<!-- Fin des appels de scripts -->
-</body>
-</html>

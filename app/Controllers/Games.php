@@ -39,4 +39,9 @@ class Games extends Controller
         View::render('games/memory', $data);
         View::renderTemplate('footer', $data);
     }
+    public function wordcases(){
+        View::renderTemplate('header', $data);
+        View::render('games/wordcases',$data);
+        View::renderTemplate('footer', $data);
+    }
 }
