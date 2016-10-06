@@ -65,11 +65,10 @@ function finish()
 }
 </script>
 
-<div class="title">Jeu du Memory</div>
-<p>Score : <span id="compteurmouvement"></span></p>
-<p>Temps : <span id="compteurtemps"></span></p>
+<p class="title">Score : <span id="compteurmouvement"></span></p>
+<p class="compteur">Temps : <span id="compteurtemps"></span></p>
 <div class="row">
-    <div class="col-md-offset-1 col-md-3 col-sm-12">
+    <div class="grid col-md-offset-1 col-md-3 col-sm-12">
         <div id="case" onclick="count();">
             <div id="image1" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/haut_parleur.png" id="im"></div>
             <div id="image2" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/disquette.png" id="im1"></div>
@@ -93,5 +92,6 @@ function finish()
             <div id="image20" onclick="doTimer();"><img src="<?= Url::templatePath(); ?>img/memory/cahier.png"  id="im19"></div>
         </div>
     </div>
+
 </div>
 <a id="submitscorebutton" type="button" class="btn btn-info" style="">Soumettre le score</a>
