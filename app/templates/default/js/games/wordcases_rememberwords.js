@@ -5,10 +5,13 @@ function LoadEntryWordsBox()
 {
     $("#wordListDiv").fadeOut( "slow", function() {});
     $(".screen").fadeOut( "slow", function() {
+        $("#entrywordsboxtitle").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
         $("#entrywordsbox").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
         $("#concedebutton").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
+        $("#scorebar").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
     });
-
+    var purcent = Math.round(nbRememberWords / nbWordsToFind);
+    $("#scorebar").css("width", purcent + "%").html(nbRememberWords + " mots sur " + nbWordsToFind);
     var verifyWordsEntered = window.setInterval("VerifyEntryWord()", 200);
 }
 
@@ -31,6 +34,8 @@ function VerifyEntryWord()
                     rememberWordList.push(wordList[i]);
                     document.getElementById("entrywordsbox").value = "";
                     nbRememberWords++;
+                    var purcent = Math.round(nbRememberWords / nbWordsToFind);
+                    $("#scorebar").css("width", purcent + "%").html(nbRememberWords + " mots sur " + nbWordsToFind);
                 }
             }
             else
@@ -38,6 +43,8 @@ function VerifyEntryWord()
                 rememberWordList.push(wordList[i]);
                 document.getElementById("entrywordsbox").value = "";
                 nbRememberWords++;
+                var purcent = Math.round(nbRememberWords / nbWordsToFind);
+                $("#scorebar").css("width", purcent + "%").html(nbRememberWords + " mots sur " + nbWordsToFind);
             }
         }
     }
@@ -47,6 +54,7 @@ function VerifyEntryWord()
 
 function Concede()
 {
+    $("#entrywordsboxtitle").fadeOut( "slow", function() {});
     $("#entrywordsbox").fadeOut( "slow", function() {});
     $("#concedebutton").fadeOut( "slow", function() {
         $("#submitscorebutton").css({'visibility': "visible", 'display':'inline', 'opacity':'1'}).fadeIn( "slow", function() {});
@@ -56,6 +64,7 @@ function Concede()
 
 function Finish()
 {
+    $("#entrywordsboxtitle").fadeOut( "slow", function() {});
     $("#entrywordsbox").fadeOut( "slow", function() {});
     $("#concedebutton").fadeOut( "slow", function() {
         $("#submitscorebutton").css({'visibility': "visible", 'display':'inline', 'opacity':'1'}).fadeIn( "slow", function() {});
@@ -65,5 +74,5 @@ function Finish()
 
 function SubmitScore()
 {
-
+    $("#score").html(Math.round((nbRememberWords / nbWordsToFind)*100) + " points !");
 }

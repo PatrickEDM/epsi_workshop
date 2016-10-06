@@ -13,13 +13,14 @@ use Helpers\Assets;
 <div class="screen">
 
 </div>
+</br>
 <div id="wordListDiv">
-    Mots à chercher:
+    <p id="wordsToSearchTitle">Mots à chercher:</p>
     <ul id="wordList">
     </ul>
 </div>
 <div class="remember col-md-offset-1 col-md-6 col-sm-6">
-    <p>Entrez les mots dont vous vous souvenez...</p>
+    <p id="entrywordsboxtitle">Entrez les mots dont vous vous souvenez...</p>
     <input id="entrywordsbox" type="text" name="wordToRemember" value="" placeholder="Entrez les mots dont vous vous souvenez...">
     <button id="submitscorebutton" onclick="SubmitScore()" type="button" class="btn btn-info">Soumettre le score</button>
     <button id="concedebutton" onclick="Concede()" type="button" class="btn btn-danger">Abandonner</button>

@@ -11,6 +11,7 @@ var dictionnary = ["ARMOIRE", "ORDINATEUR", "PRAIRIE", "NUAGES", "ESCALIER",
 var nbWordsToFind = 0;
 var nbWordsFound = 0;
 var nbRememberWords = 0;
+var nbGridWords = 10;
 
 function WriteList()
 {
@@ -246,7 +247,11 @@ function SelectXWords(nbWords)
     }
 }
 
-SelectXWords(10);
+/* Modifier le jeu: PREMIER NOMBRE : Nombre de lignes & Colonnes //// DEUXIEME NOMBRE: Nombre de mots à trouver */
+GameModifier(10, 2);
+/* */
+
+SelectXWords(nbGridWords);
 GenerateBoardLetters();
 TryToPlaceDictionnary();
 WriteList();

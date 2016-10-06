@@ -11,6 +11,12 @@ var nbCol = 12;
 var nbLines = 12;
 var boardLetters = [[]];
 
+function GameModifier(gridSize, nbWordsInGrid)
+{
+    nbCol = gridSize;
+    nbLines = gridSize;
+    nbGridWords = nbWordsInGrid;
+}
 
 function DetectionMobile()
 {

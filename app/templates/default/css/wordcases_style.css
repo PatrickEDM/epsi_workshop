@@ -64,9 +64,20 @@ td
     font-weight: bold;
 }
 
+#wordsToSearchTitle
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#entrywordsboxtitle
+{
+    visibility: hidden;
+}
+
 #entrywordsbox
 {
-    width: 400px;
+    width: 350px;
     visibility: hidden;
     text-align: left;
 }
@@ -85,6 +96,7 @@ td
 }
 
 #wordListDiv, #worldList{
+    text-align: center;
     color:white;
 }
 .remember{margin-top: 5%;}
