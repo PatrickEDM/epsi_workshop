@@ -60,7 +60,7 @@ function finish()
 {
     var cnt1 = document.getElementById('compteurmouvement').innerHTML;
     stopCount();
-    document.getElementById('submitscorebutton').href ="<?= DIR; ?>jeux/savememory/"+(120-cnt1);
+    document.getElementById('submitscorebutton').href ="<?= DIR; ?>jeux/savememory/"+cnt1;
     $("#submitscorebutton").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
 }
 </script>
@@ -94,4 +94,4 @@ function finish()
     </div>
 
 </div>
-<a id="submitscorebutton" type="button" class="btn btn-info" style="">Soumettre le score</a>
+<div class="soumette"><a id="submitscorebutton" type="button" class="btn btn-info soumettre" style="">Soumettre le score</a></div>
