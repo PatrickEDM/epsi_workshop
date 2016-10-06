@@ -43,11 +43,12 @@ class Joueurgestion extends Controller
         $data['title'] = "Profil";
         $data['joueur'] = $this->joueurSQL->findById($id);
 
-        $memory = $this->jeuSQL->prepareFindByNom("Memory")->execute()[0];
-        $wordcases = $this->jeuSQL->prepareFindByNom("Mots casés")->execute()[0];
+        $jeux = $this->jeuSQL->prepareFindAll()->execute();
 
-        $data['Memory'] = $this->statistiqueSQL->prepareFindAvgScoreByGame($id, $memory->getId())->execute();
-        $data['Mots_cases'] = $this->statistiqueSQL->prepareFindAvgScoreByGame($id, $wordcases->getId())->execute();
+        foreach ($jeux as $j){
+            $data['Jeux'][] = $this->statistiqueSQL->prepareFindAvgScoreByGame($id, $j->getId())->execute();
+            $data['Nom_Jeux'][] = $j->nom;
+        }
         View::renderTemplate('header', $data);
         View::render('user/profil', $data);
         View::renderTemplate('footer', $data);
