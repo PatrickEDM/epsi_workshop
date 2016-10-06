@@ -26,7 +26,7 @@ $hooks = Hooks::get();
     <?php
 	Assets::css(array(
 	    Url::templatePath() . 'css/wordcases_style.css',
-		'//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css',
+        Url::templatePath() . 'css/bootstrap.min.css',
 		Url::templatePath() . 'css/style.css',
 		Url::templatePath() . 'css/chart.css',
 	));

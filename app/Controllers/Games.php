@@ -15,9 +15,6 @@ use Helpers\Session;
 use Core\View;
 use Helpers\Url;
 use Models\Queries\JeuSQL;
-use Models\Queries\JoueurSQL;
-use Models\Queries\StatistiqueSQL;
-use Models\Tables\Joueur;
 use Models\Tables\Statistique;
 
 class Games extends Controller

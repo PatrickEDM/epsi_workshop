@@ -7,7 +7,9 @@ var dictionnary = ["ARMOIRE", "ORDINATEUR", "PRAIRIE", "NUAGES", "ESCALIER",
     "CIEL", "OCEAN", "AVION", "POULET", "CHIEN",
     "CABANE", "FORET", "MONTAGNE", "PIERRE", "FRAISE",
     "MUSIQUE", "GUITARE", "ECHELLE", "VOYAGE", "TRAIN",
-    "VOITURE", "TELEPHONE", "CHAMPS", "BILBOQUET"];
+    "VOITURE", "TELEPHONE", "CHAMPS", "BILBOQUET", "BILLET",
+    "SIRENE", "BATEAU", "VOILE", "PROUE", "MAT",
+    "ECHECS", "DAMES", "CHEVAL", "COURSE", "CIRUIT"];
 var nbWordsToFind = 0;
 var nbWordsFound = 0;
 var nbRememberWords = 0;
@@ -248,7 +250,7 @@ function SelectXWords(nbWords)
 }
 
 /* Modifier le jeu: PREMIER NOMBRE : Nombre de lignes & Colonnes //// DEUXIEME NOMBRE: Nombre de mots à trouver */
-GameModifier(10, 10);
+GameModifier(10, 4);
 /* */
 
 SelectXWords(nbGridWords);
