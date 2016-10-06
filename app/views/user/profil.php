@@ -13,36 +13,25 @@
         <div class="col-md-6 col-sm-8">
             <p>Memory</p>
             <div class="ct-chart ct-perfect-fourth"></div>
-            <?php
-            $scoreMemory = array();
-            $dateMemory = array();
-            $scoreMotsCases = array();
-            $dateMotsCases = array();
-            if ($data['Memory'])
-            {
-                foreach($data['Memory'] as $stat)
-                {
-                    array_push($scoreMemory,$stat->score);
-                    array_push($dateMemory,$stat->date);
-                }
-            }
-
-            if($data['Mots_cases'])
-            {
-                foreach($data['Mots_cases'] as $stat)
-                {
-                    array_push($scoreMotsCases,$stat->score);
-                    array_push($dateMotsCases,$stat->date);
-                }
-            }
-
-
-            ?>
             <script>
                 new Chartist.Line('.ct-chart', {
-                    labels: ['janvier','février'],
+                    labels: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
                     series: [
-                        [0,1],
+                        [
+                            <?php
+                                if ($data['Memory']) {
+                                    for ($i = 1; $i <= date('m'); $i++){
+                                        if(intval($data['Memory'][0]->mois) == $i){
+                                            echo $data['Memory'][0]->avg_score.',';
+                                            array_shift($data['Memory']);
+                                        }
+                                        else if($i != date('m')){
+                                            echo '0,';
+                                        }
+                                    }
+                                }
+                            ?>
+                        ],
                     ]
                 }, {
                     fullWidth: false,

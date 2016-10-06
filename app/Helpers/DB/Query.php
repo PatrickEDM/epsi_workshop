@@ -79,6 +79,12 @@ abstract class Query {
     }
 
 
+    function prepareFindAvgScoreByGame($idJoueur, $idJeu, $params = false){
+        $this->sql = "SELECT ROUND(AVG(score)) as 'avg_score', MONTH(date) as 'mois' FROM $this->tableName WHERE idJoueur = ".$idJoueur." && YEAR(date) = YEAR(CURDATE()) && idJeu = ".$idJeu." GROUP BY MONTH(date)";
+        $this->params = $params;
+        return $this;
+    }
+
     /**
      * Find all records
      * @return $this
