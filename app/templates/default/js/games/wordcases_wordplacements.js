@@ -9,7 +9,20 @@ var dictionnary = ["ARMOIRE", "ORDINATEUR", "PRAIRIE", "NUAGES", "ESCALIER",
     "MUSIQUE", "GUITARE", "ECHELLE", "VOYAGE", "TRAIN",
     "VOITURE", "TELEPHONE", "CHAMPS", "BILBOQUET", "BILLET",
     "SIRENE", "BATEAU", "VOILE", "PROUE", "MAT",
-    "ECHECS", "DAMES", "CHEVAL", "COURSE", "CIRUIT"];
+    "ECHECS", "DAMES", "CHEVAL", "COURSE", "CIRCUIT",
+    "ART", "PEINTURE", "DANSE", "CINEMA", "AUTEUR",
+    "PANTALON", "VETEMENT", "BERET", "CHAUSSURE", "MANTEAU",
+    "PARAPLUIE", "METEO", "ORAGE", "ESPACE", "PLANETE",
+    "NEPTUNE", "VENUS", "MARS", "JUPITER", "ASTEROIDE",
+    "MEMOIRE", "MARIAGE", "FAMILLE", "BANANE", "ELEPHANT",
+    "JUNGLE", "PLAGE", "VAGUE", "DUNE", "SOLEIL",
+    "LUNE", "ASTRE", "FRUIT", "LAMPADAIRE", "ELECTRICITE",
+    "ECLAIRAGE", "CHEMINEE", "CABLAGE", "POMMIER", "LUSTRE",
+    "CHEMIN", "DESTIN", "PISCINE", "VERANDA", "VACANCES",
+    "SCULPTURE", "GRAVURE", "VALISE", "AUTOROUTE", "SOUVENIR",
+    "GARAGE", "ETAGERE", "ORANGE", "VACHE", "AUTRUCHE",
+    "JARRE", "CUISSON", "POISSON", "STEAK", "VIANDE",
+    "PILLIER", "MONUMENT", "TOUR", "CHATEAU", "CITADELLE"];
 var nbWordsToFind = 0;
 var nbWordsFound = 0;
 var nbRememberWords = 0;
@@ -105,7 +118,7 @@ function TryToPlaceDictionnary()
 {
     for(var i = 0; i < wordList.length; i++)
     {
-        var wordPlaced = TryToPlace(wordList[i], 60);
+        var wordPlaced = TryToPlace(wordList[i], 150);
         if(!wordPlaced)
             wordList[i] = "0";
     }
