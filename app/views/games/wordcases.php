@@ -20,7 +20,7 @@ use Helpers\Assets;
     </ul>
 </div>
 <div class="remember col-md-offset-1 col-md-6 col-sm-6">
-    <p id="entrywordsboxtitle">Entrez les mots dont vous vous souvenez...</p>
+    <p id="entrywordsboxtitle">Entrez les mots dont vous vous souvenez...<br>(Ne mettez pas d'accents.)</p>
     <input id="entrywordsbox" type="text" name="wordToRemember" value="" placeholder="Entrez les mots dont vous vous souvenez...">
     </br></br>
     <div class="progress">
