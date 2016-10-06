@@ -11,43 +11,38 @@
     <h3><?= $data['joueur']->prenom." ".$data['joueur']->nom; ?></h3>
     <div class="row">
         <div class="col-md-6 col-sm-8">
-            <p>Jeux 1</p>
+            <p>Memory</p>
             <div class="ct-chart ct-perfect-fourth"></div>
             <?php
-                // affiche toutes les stats du joueur connecté
-                foreach ($data['stat'] as $stat)
+            $scoreMemory = array();
+            $dateMemory = array();
+            $scoreMotsCases = array();
+            $dateMotsCases = array();
+            if ($data['Memory'])
+            {
+                foreach($data['Memory'] as $stat)
                 {
-                    echo $stat->date."<br>";
-                    echo $stat->score."<br>";
-                    echo $stat->nomJeu."<br>";
-                    echo "<br>";
+                    array_push($scoreMemory,$stat->score);
+                    array_push($dateMemory,$stat->date);
                 }
+            }
+
+            if($data['Mots_cases'])
+            {
+                foreach($data['Mots_cases'] as $stat)
+                {
+                    array_push($scoreMotsCases,$stat->score);
+                    array_push($dateMotsCases,$stat->date);
+                }
+            }
+
 
             ?>
             <script>
                 new Chartist.Line('.ct-chart', {
-                    labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
+                    labels: ['janvier','février'],
                     series: [
-                        [12, 9, 7, 8, 5],
-                    ]
-                }, {
-                    fullWidth: false,
-                    height: 300,
-                    width: 600,
-                    chartPadding: {
-                        right: 60
-                    }
-                });
-            </script>
-        </div>
-        <div class="col-md-3 col-sm-8">
-            <p>Jeux 2</p>
-            <div class="ct-chart1 ct-perfect-fourth"></div>
-            <script>
-                new Chartist.Line('.ct-chart1', {
-                    labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
-                    series: [
-                        [1, 9, 7, 8, 5],
+                        [0,1],
                     ]
                 }, {
                     fullWidth: false,
