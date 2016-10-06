@@ -250,7 +250,7 @@ function SelectXWords(nbWords)
 }
 
 /* Modifier le jeu: PREMIER NOMBRE : Nombre de lignes & Colonnes //// DEUXIEME NOMBRE: Nombre de mots à trouver */
-GameModifier(10, 10);
+GameModifier(12, 10);
 /* */
 
 SelectXWords(nbGridWords);
