@@ -24,7 +24,7 @@
                 <span style="color: #F05B4F; font-weight: bold; font-size: 25px;">&rArr;</span>Mots casés<br/>
             </p>
             <div class="ct-chart ct-perfect-fourth"></div>
-            <?= var_dump($data); ?>            <script>
+            <script>
                 new Chartist.Line('.ct-chart', {
                     labels: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
                     series: [
