@@ -17,7 +17,7 @@ var voirimg = "";
 var imageouverte1 = "";
 var pair = 0;
 $(document).ready(function() {
-    $("img").hide();
+    $("#submitscorebutton").hide();
     shuffle();
     $("#case div").click(function()
     {
@@ -59,23 +59,14 @@ $(document).ready(function() {
 function finish()
 {
     var cnt1 = document.getElementById('compteurmouvement').innerHTML;
-    var temps= document.getElementById('compteurtemps').innerHTML;
-    alert("Félicitations! Vous avez gagné avec un total de : "+cnt1+" mouvements et en : "+temps+" secondes");
-    if(confirm("Voulez-vous jouer à nouveau ?"))
-    {
-        stopCount();
-        window.location.href= "<?= DIR; ?>games/savememory/"+cnt1+","+temps+",y";
-    }
-    else
-    {
-        stopCount();
-        window.location.href= "<?= DIR; ?>games/savememory/"+cnt1+","+temps+",n";
-    }
+    stopCount();
+    document.getElementById('submitscorebutton').href ="<?= DIR; ?>jeux/savememory/"+(120-cnt1);
+    $("#submitscorebutton").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
 }
 </script>
 
 <div class="title">Jeu du Memory</div>
-<p>Mouvement : <span id="compteurmouvement"></span></p>
+<p>Score : <span id="compteurmouvement"></span></p>
 <p>Temps : <span id="compteurtemps"></span></p>
 <div class="row">
     <div class="col-md-offset-1 col-md-3 col-sm-12">
@@ -103,3 +94,4 @@ function finish()
         </div>
     </div>
 </div>
+<a id="submitscorebutton" type="button" class="btn btn-info" style="">Soumettre le score</a>

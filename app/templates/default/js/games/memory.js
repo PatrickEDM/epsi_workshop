@@ -5,7 +5,7 @@ var click=1;
 function count()
 {
     var x = click++;
-    document.getElementById('compteurmouvement').innerHTML = x;
+    document.getElementById('compteurmouvement').innerHTML = 120-x;
 }
 
 function randomFromTo(from, to)
@@ -14,7 +14,7 @@ function randomFromTo(from, to)
 }
 function shuffle()
 {
-    $("img").hide();
+    $("#case img").hide();
     var images = $("#case").children();
     var shuf = $("#case div:first-child");
     var array_img = new Array();
