@@ -54,7 +54,7 @@ class Games extends Controller
     }
 
     public function savewordcases($score){
-        $wordcase = $this->jeuSQL->prepareFindByNom("Mot casés")->execute()[0];
+        $wordcase = $this->jeuSQL->prepareFindByNom("Mots casés")->execute()[0];
         $stats = new Statistique(date("Y-m-d"), $score, Session::get('idJoueur'), $wordcase->getId());
         $this->entityManager->save($stats);
         Url::redirect('jeux/motscases');
