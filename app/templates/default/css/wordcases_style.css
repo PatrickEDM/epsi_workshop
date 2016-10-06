@@ -34,6 +34,13 @@ td
                                       not supported by any browser */
 }
 
+#score
+{
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+
 .selected
 {
     background-color: rgb(255, 249, 142);
@@ -99,5 +106,16 @@ td
     text-align: center;
     color:white;
 }
+
+.progress {
+    width: 350px;
+    visibility: hidden;
+}
+
+.scorebar
+{
+    color: black;
+}
+
 .remember{margin-top: 5%;}
 .remember p{color:white}

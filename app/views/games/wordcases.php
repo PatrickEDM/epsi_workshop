@@ -22,6 +22,13 @@ use Helpers\Assets;
 <div class="remember col-md-offset-1 col-md-6 col-sm-6">
     <p id="entrywordsboxtitle">Entrez les mots dont vous vous souvenez...</p>
     <input id="entrywordsbox" type="text" name="wordToRemember" value="" placeholder="Entrez les mots dont vous vous souvenez...">
+    </br></br>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped active scorebar" role="progressbar"
+             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            0%
+        </div>
+    </div>
     <button id="submitscorebutton" onclick="SubmitScore()" type="button" class="btn btn-info">Soumettre le score</button>
     <button id="concedebutton" onclick="Concede()" type="button" class="btn btn-danger">Abandonner</button>
 </div>

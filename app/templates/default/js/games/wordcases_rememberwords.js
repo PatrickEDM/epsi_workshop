@@ -8,10 +8,11 @@ function LoadEntryWordsBox()
         $("#entrywordsboxtitle").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
         $("#entrywordsbox").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
         $("#concedebutton").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
-        $("#scorebar").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
+        $(".progress").css({'visibility': "visible", 'opacity':'1'}).fadeIn( "slow", function() {});
     });
-    var purcent = Math.round(nbRememberWords / nbWordsToFind);
-    $("#scorebar").css("width", purcent + "%").html(nbRememberWords + " mots sur " + nbWordsToFind);
+    var purcent = (Math.round((nbRememberWords / nbWordsToFind)*100)) + "%";
+    console.log(purcent);
+    $(".scorebar").css({'width': purcent}).html(nbRememberWords + " mots sur " + nbWordsToFind);
     var verifyWordsEntered = window.setInterval("VerifyEntryWord()", 200);
 }
 
@@ -34,8 +35,9 @@ function VerifyEntryWord()
                     rememberWordList.push(wordList[i]);
                     document.getElementById("entrywordsbox").value = "";
                     nbRememberWords++;
-                    var purcent = Math.round(nbRememberWords / nbWordsToFind);
-                    $("#scorebar").css("width", purcent + "%").html(nbRememberWords + " mots sur " + nbWordsToFind);
+                    var purcent = (Math.round((nbRememberWords / nbWordsToFind)*100)) + "%";
+                    console.log(purcent);
+                    $(".scorebar").css({'width': purcent}).html(nbRememberWords + " mots sur " + nbWordsToFind);
                 }
             }
             else
@@ -43,8 +45,9 @@ function VerifyEntryWord()
                 rememberWordList.push(wordList[i]);
                 document.getElementById("entrywordsbox").value = "";
                 nbRememberWords++;
-                var purcent = Math.round(nbRememberWords / nbWordsToFind);
-                $("#scorebar").css("width", purcent + "%").html(nbRememberWords + " mots sur " + nbWordsToFind);
+                var purcent = (Math.round((nbRememberWords / nbWordsToFind)*100)) + "%";
+                console.log(purcent);
+                $(".scorebar").css({'width': purcent}).html(nbRememberWords + " mots sur " + nbWordsToFind);;
             }
         }
     }
