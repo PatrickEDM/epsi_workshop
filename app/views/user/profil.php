@@ -37,9 +37,11 @@
                     fullWidth: false,
                     height: 300,
                     width: 600,
+                    high: 100,
                     chartPadding: {
                         right: 60
                     }
+
                 });
             </script>
         </div>
