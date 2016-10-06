@@ -33,4 +33,10 @@
  #case img{
     display: none; border: none;
  }
- .title{color:white;}
+ .title{color:white;margin-top:8%;margin-left:9%;}
+.compteur{
+    margin-left:9%;
+    color:white;
+}
+.regle{color:white;}
+.btn{margin-left:10%;margin-top:5px;}

@@ -11,6 +11,7 @@ namespace Controllers;
 
 use Core\Controller;
 use Helpers\DB\EntityManager;
+use Helpers\DB\DBManager;
 use Helpers\Session;
 use Core\View;
 use Helpers\Url;
@@ -23,6 +24,7 @@ class Joueurgestion extends Controller
 {
 
     private $entityManager;
+    private $dbManager;
     private $joueurSQL;
     private $statistiqueSQL;
     private $jeuSQL;
@@ -31,41 +33,21 @@ class Joueurgestion extends Controller
     {
         parent::__construct();
         $this->entityManager = EntityManager::getInstance();
+        $this->dbManager = DBManager::getInstance();
         $this->joueurSQL = new JoueurSQL();
         $this->statistiqueSQL = new StatistiqueSQL();
         $this->jeuSQL = new JeuSQL();
     }
 
-
-    private function _chargerScore($id)
-    {
-        // On Charge les scores de la personne identifié par la variable $id
-        $condition = "idJoueur = ".$id;
-        $statistique = $this->statistiqueSQL->prepareFindWithCondition($condition)->execute();
-        for($i=0;$i<count($statistique);$i++)
-        {
-            //On ajoute le nom du jeu dans le tableau
-            $jeu = $this->jeuSQL->findById($statistique[$i]->idJeu);
-            $statistique[$i]->nomJeu = $jeu->nom;
-        }
-        // On retourne un tableau contenant tous les résultats
-
-        return $statistique;
-
-    }
-
     public function profil($id){
         $data['title'] = "Profil";
         $data['joueur'] = $this->joueurSQL->findById($id);
-        $stat = $this->_chargerScore($id);
-        for($i=0;$i<count($stat);$i++)
-        {
-            if($stat[$i]->nomJeu == 'Memory') {
-                $data['Memory'][] = $stat[$i];
-            }
-            if($stat[$i]->nomJeu == 'Mots casés')
-                $data['Mots_cases'][] = $stat[$i];
-        }
+
+        $memory = $this->jeuSQL->prepareFindByNom("Memory")->execute()[0];
+        $wordcases = $this->jeuSQL->prepareFindByNom("Mots casés")->execute()[0];
+
+        $data['Memory'] = $this->statistiqueSQL->prepareFindAvgScoreByGame($id, $memory->getId())->execute();
+        $data['Mots_cases'] = $this->statistiqueSQL->prepareFindAvgScoreByGame($id, $wordcases->getId())->execute();
         View::renderTemplate('header', $data);
         View::render('user/profil', $data);
         View::renderTemplate('footer', $data);
