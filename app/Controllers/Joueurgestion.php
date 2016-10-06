@@ -37,7 +37,7 @@ class Joueurgestion extends Controller
     }
 
 
-    public function chargerScore($id)
+    private function _chargerScore($id)
     {
         // On Charge les scores de la personne identifié par la variable $id
         $condition = "idJoueur = ".$id;
@@ -57,7 +57,14 @@ class Joueurgestion extends Controller
     public function profil($id){
         $data['title'] = "Profil";
         $data['joueur'] = $this->joueurSQL->findById($id);
-        $data['stat'] = $this->chargerScore($id);
+        $stat = $this->_chargerScore($id);
+        for($i=0;$i<count($stat);$i++)
+        {
+            if($stat[$i]->nomJeu = 'Memory')
+                $data['Memory'] = $stat[$i];
+            if($stat[$i]->nomJeu = 'Mots casés')
+                $data['Mots casés'] = $stat[$i];
+        }
         View::renderTemplate('header', $data);
         View::render('user/profil', $data);
         View::renderTemplate('footer', $data);
