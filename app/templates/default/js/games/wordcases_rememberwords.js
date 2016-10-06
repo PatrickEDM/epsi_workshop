@@ -1,5 +1,6 @@
 
 var rememberWordList = [];
+var verifyWordsEntered;
 
 function LoadEntryWordsBox()
 {
@@ -13,7 +14,7 @@ function LoadEntryWordsBox()
     var purcent = (Math.round((nbRememberWords / nbWordsToFind)*100)) + "%";
     console.log(purcent);
     $(".scorebar").css({'width': purcent}).html(nbRememberWords + " mots sur " + nbWordsToFind);
-    var verifyWordsEntered = window.setInterval("VerifyEntryWord()", 200);
+    verifyWordsEntered = window.setInterval("VerifyEntryWord()", 200);
 }
 
 function VerifyEntryWord()
@@ -62,7 +63,9 @@ function Concede()
     $("#concedebutton").fadeOut( "slow", function() {
         $("#submitscorebutton").css({'visibility': "visible", 'display':'inline', 'opacity':'1'}).fadeIn( "slow", function() {});
     });
-    $("#score").html(nbRememberWords + " mots trouvés sur " + nbWordsToFind + " !");
+    $("#score").html("SCORE: " + Math.round((nbRememberWords / nbWordsToFind)*100) + " points !");
+    clearInterval(verifyWordsEntered);
+    $('#scorelink').attr("href", $('#scorelink').attr("href") + "jeux/savemotscases/" + Math.round((nbRememberWords / nbWordsToFind)*100).toString());
 }
 
 function Finish()
@@ -72,10 +75,7 @@ function Finish()
     $("#concedebutton").fadeOut( "slow", function() {
         $("#submitscorebutton").css({'visibility': "visible", 'display':'inline', 'opacity':'1'}).fadeIn( "slow", function() {});
     });
-    $("#score").html(nbRememberWords + " mots trouvés sur " + nbWordsToFind + ", Bravo !");
-}
-
-function SubmitScore()
-{
-    $("#score").html(Math.round((nbRememberWords / nbWordsToFind)*100) + " points !");
+    $("#score").html("SCORE: " + Math.round((nbRememberWords / nbWordsToFind)*100) + " points !");
+    clearInterval(verifyWordsEntered);
+    $('#scorelink').attr("href", $('#scorelink').attr("href") + "jeux/savemotscases/" + (Math.round((nbRememberWords / nbWordsToFind)*100)).toString());
 }

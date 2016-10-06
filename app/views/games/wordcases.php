@@ -29,7 +29,7 @@ use Helpers\Assets;
             0%
         </div>
     </div>
-    <button id="submitscorebutton" onclick="SubmitScore()" type="button" class="btn btn-info">Soumettre le score</button>
+    <a id="scorelink" href="<?= DIR; ?>" ><button id="submitscorebutton" type="button" class="btn btn-info">Soumettre le score</button></a>
     <button id="concedebutton" onclick="Concede()" type="button" class="btn btn-danger">Abandonner</button>
 </div>
     <!-- ================================================================================== -->
