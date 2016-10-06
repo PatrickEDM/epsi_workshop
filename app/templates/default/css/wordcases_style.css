@@ -71,6 +71,12 @@ td
     font-weight: bold;
 }
 
+.wordnotfound
+{
+    color: #6e0000;
+    font-weight: bold;
+}
+
 #wordsToSearchTitle
 {
     font-size: 2em;
