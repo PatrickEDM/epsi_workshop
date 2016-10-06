@@ -15,9 +15,7 @@ use Helpers\Session;
 use Core\View;
 use Helpers\Url;
 use Models\Queries\JeuSQL;
-use Models\Queries\JoueurSQL;
-use Models\Queries\StatistiqueSQL;
-use Models\Tables\Joueur;
+use Models\Tables\Statistique;
 
 class Games extends Controller
 {
@@ -33,6 +31,7 @@ class Games extends Controller
     }
 
     public function memory(){
+        $data['title'] = "Memory";
         $data['jeu'] = $this->jeuSQL->prepareFindByNom("Memory")->execute()[0];
 
         View::renderTemplate('header', $data);
@@ -40,8 +39,24 @@ class Games extends Controller
         View::renderTemplate('footer', $data);
     }
     public function wordcases(){
+        $data['title'] = "Mots casés";
+
         View::renderTemplate('header', $data);
         View::render('games/wordcases',$data);
         View::renderTemplate('footer', $data);
+    }
+
+    public function savememory($score){
+        $memory = $this->jeuSQL->prepareFindByNom("Memory")->execute()[0];
+        $stats = new Statistique(date("Y-m-d"), $score, Session::get('idJoueur'), $memory->getId());
+        $this->entityManager->save($stats);
+        Url::redirect('jeux/memory');
+    }
+
+    public function savewordcases($score){
+        $wordcase = $this->jeuSQL->prepareFindByNom("Mot casés")->execute()[0];
+        $stats = new Statistique(date("Y-m-d"), $score, Session::get('idJoueur'), $wordcase->getId());
+        $this->entityManager->save($stats);
+        Url::redirect('jeux/motscases');
     }
 }
