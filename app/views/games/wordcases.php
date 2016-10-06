@@ -1,6 +1,7 @@
 <?php
 use Helpers\Url;
 use Helpers\Assets;
+
 ?>
 
 
@@ -9,7 +10,7 @@ use Helpers\Assets;
 <!-- ================================================================================== -->
 <br/><br/>
 <p id="score"></p>
-<div class="screen noselect">
+<div class="screen">
 
 </div>
 <div id="wordListDiv">
@@ -17,10 +18,13 @@ use Helpers\Assets;
     <ul id="wordList">
     </ul>
 </div>
-<input id="entrywordsbox" type="text" name="wordToRemember" value="" placeholder="Entrez les mots dont vous vous souvenez...">
-<button id="submitscorebutton" onclick="SubmitScore()" type="button" class="btn btn-info">Soumettre le score</button>
-<button id="concedebutton" onclick="Concede()" type="button" class="btn btn-danger">Abandonner</button>
-<!-- ================================================================================== -->
+<div class="remember col-md-offset-1 col-md-6 col-sm-6">
+    <p>Entrez les mots dont vous vous souvenez...</p>
+    <input id="entrywordsbox" type="text" name="wordToRemember" value="" placeholder="Entrez les mots dont vous vous souvenez...">
+    <button id="submitscorebutton" onclick="SubmitScore()" type="button" class="btn btn-info">Soumettre le score</button>
+    <button id="concedebutton" onclick="Concede()" type="button" class="btn btn-danger">Abandonner</button>
+</div>
+    <!-- ================================================================================== -->
 <!-- Fin des éléments du jeu -->
 <!-- ================================================================================== -->
 

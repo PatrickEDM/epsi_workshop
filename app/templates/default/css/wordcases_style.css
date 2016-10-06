@@ -24,6 +24,14 @@ td
     -o-transition: background-color 0.2s ease-in-out;
     -ms-transition: background-color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out;
+
+     -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none;   /* Chrome/Safari/Opera */
+      -khtml-user-select: none;    /* Konqueror */
+      -moz-user-select: none;      /* Firefox */
+      -ms-user-select: none;       /* Internet Explorer/Edge */
+      user-select: none;           /* Non-prefixed version, currently
+                                      not supported by any browser */
 }
 
 .selected
@@ -79,3 +87,5 @@ td
 #wordListDiv, #worldList{
     color:white;
 }
+.remember{margin-top: 5%;}
+.remember p{color:white}
