@@ -60,10 +60,11 @@ class Joueurgestion extends Controller
         $stat = $this->_chargerScore($id);
         for($i=0;$i<count($stat);$i++)
         {
-            if($stat[$i]->nomJeu = 'Memory')
-                $data['Memory'] = $stat[$i];
-            if($stat[$i]->nomJeu = 'Mots casés')
-                $data['Mots casés'] = $stat[$i];
+            if($stat[$i]->nomJeu == 'Memory') {
+                $data['Memory'][] = $stat[$i];
+            }
+            if($stat[$i]->nomJeu == 'Mots casés')
+                $data['Mots_cases'][] = $stat[$i];
         }
         View::renderTemplate('header', $data);
         View::render('user/profil', $data);
